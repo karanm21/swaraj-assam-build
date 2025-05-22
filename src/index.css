@@ -96,6 +96,10 @@
     @apply border-border;
   }
 
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: 'Poppins', sans-serif;
@@ -120,4 +124,29 @@
   .btn-secondary {
     @apply bg-construction-blue text-white font-medium py-2 px-6 rounded hover:bg-opacity-90 transition-all;
   }
+  
+  /* Animation classes */
+  .animate-on-scroll {
+    @apply opacity-0 transform translate-y-10 transition-all duration-700;
+  }
+  
+  .animate-on-scroll.is-visible {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+/* Counter animations */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.count-animation {
+  animation: countUp 2s ease-out forwards;
 }

@@ -1,8 +1,20 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { ChevronDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.offsetTop;
+      window.scrollTo({
+        top: offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section id="hero" className="relative h-screen flex items-center">
       {/* Background Image with Overlay */}
@@ -24,14 +36,31 @@ const Hero: React.FC = () => {
             Swaraj Infra is a leading construction company in Guwahati, Assam, delivering quality construction services and innovative solutions.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button className="bg-construction-yellow text-black hover:bg-construction-yellow/90 text-lg py-6 px-8">
+            <Button 
+              onClick={() => scrollToSection('services')}
+              className="bg-construction-yellow text-black hover:bg-construction-yellow/90 text-lg py-6 px-8"
+            >
               Our Services
             </Button>
-            <Button className="bg-white text-construction-blue hover:bg-white/90 text-lg py-6 px-8">
+            <Button 
+              onClick={() => scrollToSection('contact')}
+              className="bg-white text-construction-blue hover:bg-white/90 text-lg py-6 px-8"
+            >
               Contact Us
             </Button>
           </div>
         </div>
+      </div>
+      
+      {/* Scroll Down Indicator */}
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+        <button 
+          onClick={() => scrollToSection('services')}
+          className="bg-white/20 hover:bg-white/30 rounded-full p-3 backdrop-blur-sm transition-all duration-300"
+          aria-label="Scroll Down"
+        >
+          <ChevronDown className="h-6 w-6 text-white" />
+        </button>
       </div>
     </section>
   );

@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react';
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +16,23 @@ const Navbar: React.FC = () => {
       } else {
         setIsScrolled(false);
       }
+
+      // Determine which section is in view
+      const sections = ['hero', 'services', 'projects', 'stats', 'testimonials', 'about', 'contact'];
+      let currentSection = 'hero';
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            currentSection = section;
+            break;
+          }
+        }
+      }
+      
+      setActiveSection(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -25,12 +43,26 @@ const Navbar: React.FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.offsetTop;
+      window.scrollTo({
+        top: offsetTop - 80, // Adjusting for navbar height
+        behavior: 'smooth'
+      });
+      setIsMenuOpen(false);
+    }
+  };
+
   const navLinks = [
-    { name: 'Home', href: '#hero' },
-    { name: 'Services', href: '#services' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: 'hero' },
+    { name: 'Services', href: 'services' },
+    { name: 'Projects', href: 'projects' },
+    { name: 'Stats', href: 'stats' },
+    { name: 'Testimonials', href: 'testimonials' },
+    { name: 'About', href: 'about' },
+    { name: 'Contact', href: 'contact' },
   ];
 
   return (
@@ -43,17 +75,25 @@ const Navbar: React.FC = () => {
         <Logo />
         
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-6">
           {navLinks.map((link, index) => (
-            <a
+            <button
               key={index}
-              href={link.href}
-              className="text-construction-gray hover:text-construction-blue font-medium transition-colors"
+              onClick={() => scrollToSection(link.href)}
+              className={`text-construction-gray hover:text-construction-blue font-medium transition-colors relative ${
+                activeSection === link.href ? 'text-construction-blue' : ''
+              }`}
             >
               {link.name}
-            </a>
+              {activeSection === link.href && (
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-construction-yellow mt-0.5 rounded-full"></span>
+              )}
+            </button>
           ))}
-          <Button className="bg-construction-yellow text-black hover:bg-construction-yellow/90">
+          <Button 
+            onClick={() => scrollToSection('contact')}
+            className="bg-construction-yellow text-black hover:bg-construction-yellow/90"
+          >
             Get a Quote
           </Button>
         </div>
@@ -75,16 +115,20 @@ const Navbar: React.FC = () => {
         <div className="md:hidden bg-white shadow-lg">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             {navLinks.map((link, index) => (
-              <a
+              <button
                 key={index}
-                href={link.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="text-construction-gray hover:text-construction-blue font-medium py-2 transition-colors"
+                onClick={() => scrollToSection(link.href)}
+                className={`text-construction-gray hover:text-construction-blue font-medium py-2 transition-colors text-left ${
+                  activeSection === link.href ? 'text-construction-blue' : ''
+                }`}
               >
                 {link.name}
-              </a>
+              </button>
             ))}
-            <Button className="bg-construction-yellow text-black hover:bg-construction-yellow/90 w-full">
+            <Button 
+              onClick={() => scrollToSection('contact')}
+              className="bg-construction-yellow text-black hover:bg-construction-yellow/90 w-full"
+            >
               Get a Quote
             </Button>
           </div>
