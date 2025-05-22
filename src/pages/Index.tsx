@@ -35,6 +35,22 @@ const Index: React.FC = () => {
     return () => window.removeEventListener('scroll', animateOnScroll);
   }, []);
   
+  // Add scroll to current section if hash exists in URL
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        setTimeout(() => {
+          window.scrollTo({
+            top: element.getBoundingClientRect().top + window.pageYOffset - 80,
+            behavior: 'smooth'
+          });
+        }, 100);
+      }
+    }
+  }, []);
+  
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
@@ -51,3 +67,4 @@ const Index: React.FC = () => {
 };
 
 export default Index;
+
