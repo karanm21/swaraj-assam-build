@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -12,7 +11,6 @@ import Footer from '@/components/Footer';
 import Team from '@/components/Team';
 import Gallery from '@/components/Gallery';
 import Careers from '@/components/Careers';
-import WorkProcess from '@/components/WorkProcess';
 
 const Index: React.FC = () => {
   // Add scroll animation
@@ -65,7 +63,6 @@ const Index: React.FC = () => {
       <Team />
       <Gallery />
       <Careers />
-      <WorkProcess />
       <Stats />
       <Testimonials />
       <Contact />
