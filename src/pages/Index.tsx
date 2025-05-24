@@ -9,6 +9,9 @@ import Testimonials from '@/components/Testimonials';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import Team from '@/components/Team';
+import Gallery from '@/components/Gallery';
+import Careers from '@/components/Careers';
 
 const Index: React.FC = () => {
   // Add scroll animation
@@ -55,11 +58,14 @@ const Index: React.FC = () => {
     <div className="min-h-screen bg-white">
       <Navbar />
       <Hero />
+      <About />
       <Services />
       <Projects />
+      <Team />
+      <Gallery />
+      <Careers />
       <Stats />
       <Testimonials />
-      <About />
       <Contact />
       <Footer />
     </div>
@@ -67,4 +73,3 @@ const Index: React.FC = () => {
 };
 
 export default Index;
-
