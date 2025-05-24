@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -35,22 +36,6 @@ const Index: React.FC = () => {
     window.addEventListener('scroll', animateOnScroll);
     
     return () => window.removeEventListener('scroll', animateOnScroll);
-  }, []);
-  
-  // Add scroll to current section if hash exists in URL
-  useEffect(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const element = document.querySelector(hash);
-      if (element) {
-        setTimeout(() => {
-          window.scrollTo({
-            top: element.getBoundingClientRect().top + window.pageYOffset - 80,
-            behavior: 'smooth'
-          });
-        }, 100);
-      }
-    }
   }, []);
   
   return (

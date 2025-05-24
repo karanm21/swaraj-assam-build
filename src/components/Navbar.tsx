@@ -11,12 +11,13 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
   const [searchQuery, setSearchQuery] = useState('');
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,23 +26,6 @@ const Navbar: React.FC = () => {
       } else {
         setIsScrolled(false);
       }
-
-      // Determine which section is in view
-      const sections = ['hero', 'about', 'services', 'projects', 'team', 'gallery', 'careers', 'contact'];
-      let currentSection = 'hero';
-      
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            currentSection = section;
-            break;
-          }
-        }
-      }
-      
-      setActiveSection(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -50,18 +34,6 @@ const Navbar: React.FC = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offsetTop = element.offsetTop;
-      window.scrollTo({
-        top: offsetTop - 80, // Adjusting for navbar height
-        behavior: 'smooth'
-      });
-      setIsMenuOpen(false);
-    }
   };
 
   // Search functionality
@@ -74,15 +46,21 @@ const Navbar: React.FC = () => {
     }
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   const navLinks = [
-    { name: 'Home', href: 'hero' },
-    { name: 'Who We Are', href: 'about' },
-    { name: 'Services', href: 'services' },
-    { name: 'Our Work', href: 'projects' },
-    { name: 'Our Team', href: 'team' },
-    { name: 'Gallery', href: 'gallery' },
-    { name: 'Careers', href: 'careers' },
-    { name: 'Contact Us', href: 'contact' },
+    { name: 'Home', href: '/' },
+    { name: 'Who We Are', href: '/about' },
+    { name: 'Services', href: '/services' },
+    { name: 'Our Work', href: '/projects' },
+    { name: 'Our Team', href: '/team' },
+    { name: 'Gallery', href: '/gallery' },
+    { name: 'Careers', href: '/careers' },
+    { name: 'Stats', href: '/stats' },
+    { name: 'Testimonials', href: '/testimonials' },
+    { name: 'Contact Us', href: '/contact' },
   ];
 
   return (
@@ -92,23 +70,25 @@ const Navbar: React.FC = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
         
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-4">
           {navLinks.map((link, index) => (
-            <button
+            <Link
               key={index}
-              onClick={() => scrollToSection(link.href)}
+              to={link.href}
               className={`text-construction-gray hover:text-construction-blue font-medium transition-colors relative ${
-                activeSection === link.href ? 'text-construction-blue' : ''
+                location.pathname === link.href ? 'text-construction-blue' : ''
               }`}
             >
               {link.name}
-              {activeSection === link.href && (
+              {location.pathname === link.href && (
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-construction-yellow mt-0.5 rounded-full"></span>
               )}
-            </button>
+            </Link>
           ))}
           
           {/* Search Button */}
@@ -136,12 +116,13 @@ const Navbar: React.FC = () => {
             </DialogContent>
           </Dialog>
           
-          <Button 
-            onClick={() => scrollToSection('contact')}
-            className="bg-construction-yellow text-black hover:bg-construction-yellow/90"
-          >
-            Get a Quote
-          </Button>
+          <Link to="/contact">
+            <Button 
+              className="bg-construction-yellow text-black hover:bg-construction-yellow/90"
+            >
+              Get a Quote
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -185,22 +166,24 @@ const Navbar: React.FC = () => {
         <div className="md:hidden bg-white shadow-lg">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             {navLinks.map((link, index) => (
-              <button
+              <Link
                 key={index}
-                onClick={() => scrollToSection(link.href)}
+                to={link.href}
+                onClick={closeMenu}
                 className={`text-construction-gray hover:text-construction-blue font-medium py-2 transition-colors text-left ${
-                  activeSection === link.href ? 'text-construction-blue' : ''
+                  location.pathname === link.href ? 'text-construction-blue' : ''
                 }`}
               >
                 {link.name}
-              </button>
+              </Link>
             ))}
-            <Button 
-              onClick={() => scrollToSection('contact')}
-              className="bg-construction-yellow text-black hover:bg-construction-yellow/90 w-full"
-            >
-              Get a Quote
-            </Button>
+            <Link to="/contact" onClick={closeMenu}>
+              <Button 
+                className="bg-construction-yellow text-black hover:bg-construction-yellow/90 w-full"
+              >
+                Get a Quote
+              </Button>
+            </Link>
           </div>
         </div>
       )}
