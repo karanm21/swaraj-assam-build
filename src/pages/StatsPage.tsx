@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 
 const StatsPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-construction-lightgray">
       <Navbar />
       <div className="pt-20">
         <Stats />
