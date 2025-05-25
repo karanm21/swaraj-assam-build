@@ -3,73 +3,50 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Briefcase, Clock, MapPin } from 'lucide-react';
+import { Briefcase, Clock, MapPin, GraduationCap, DollarSign } from 'lucide-react';
 
 const jobOpenings = [
   {
-    title: "Civil Engineer",
-    location: "Guwahati",
+    title: "Civil Site Engineer",
+    company: "P.G Construction",
+    location: "Guwahati, Assam",
     type: "Full-time",
-    experience: "3-5 years",
-    description: "We are looking for an experienced Civil Engineer to join our team and lead infrastructure projects across Assam.",
-    responsibilities: [
-      "Plan and design construction projects",
-      "Ensure projects comply with legal requirements",
-      "Oversee construction activities on site",
-      "Prepare and monitor project schedules and budgets",
-      "Coordinate with contractors and subcontractors"
-    ],
+    experience: "2-7 years",
+    qualification: "Graduates in Civil Engineering or Diploma in Civil Engineering",
+    salary: "Negotiable",
+    description: "We are seeking an experienced Civil Site Engineer to join our team and oversee construction activities at project sites.",
     requirements: [
-      "Bachelor's degree in Civil Engineering",
-      "3-5 years of experience in construction projects",
-      "Knowledge of construction methods and technologies",
-      "Strong problem-solving skills",
-      "Good communication skills"
-    ]
+      "RCC structure work experience",
+      "Good knowledge of Drawing study",
+      "Preparing BBS at the site level",
+      "Quantity Surveying",
+      "Preparing daily reports",
+      "Good communication skills",
+      "Can operate the Auto level machine",
+      "Sound knowledge in MS-Excel"
+    ],
+    formLink: "https://forms.google.com/civil-site-engineer"
   },
   {
     title: "Project Manager",
-    location: "Guwahati",
+    company: "P.G Construction", 
+    location: "Guwahati, Assam",
     type: "Full-time",
-    experience: "5+ years",
-    description: "Seeking an experienced Project Manager to oversee our residential and commercial construction projects.",
-    responsibilities: [
-      "Lead project planning and execution",
-      "Manage project teams and resources",
-      "Ensure projects are completed on time and within budget",
-      "Maintain client relationships",
-      "Report project status to senior management"
-    ],
+    experience: "5-10 years",
+    qualification: "Bachelor's degree in Civil Engineering or Construction Management",
+    salary: "Competitive Package",
+    description: "Looking for an experienced Project Manager to lead and coordinate multiple construction projects from inception to completion.",
     requirements: [
-      "Bachelor's degree in Engineering or Construction Management",
-      "5+ years of experience in construction project management",
-      "PMP certification preferred",
-      "Excellent leadership and communication skills",
-      "Strong organizational skills"
-    ]
-  },
-  {
-    title: "Site Supervisor",
-    location: "Assam (Various Locations)",
-    type: "Full-time",
-    experience: "2-4 years",
-    description: "We need reliable Site Supervisors to monitor day-to-day construction activities at our various project sites.",
-    responsibilities: [
-      "Supervise construction activities on site",
-      "Ensure compliance with safety regulations",
-      "Coordinate with contractors and workers",
-      "Report progress to project managers",
-      "Address issues that arise during construction"
+      "Experience in project planning and execution",
+      "Team management and leadership skills",
+      "Knowledge of construction methods and materials",
+      "Budget management and cost control",
+      "Client relationship management",
+      "Proficiency in project management software",
+      "Strong problem-solving abilities",
+      "Excellent communication and presentation skills"
     ],
-    requirements: [
-      "Diploma or degree in Civil Engineering",
-      "2-4 years of experience in construction supervision",
-      "Knowledge of construction methods and safety protocols",
-      "Ability to read and interpret construction drawings",
-      "Good communication and leadership skills"
-    ]
+    formLink: "https://forms.google.com/project-manager"
   }
 ];
 
@@ -80,41 +57,56 @@ const Careers: React.FC = () => {
     <section id="careers" className="section-padding bg-construction-lightgray">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="section-title">Careers at Swaraj Infra</h2>
+          <h2 className="section-title">Current Openings</h2>
           <p className="text-lg text-construction-gray max-w-3xl mx-auto">
             Join our team of talented professionals and be part of Assam's growing infrastructure development.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-on-scroll">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 animate-on-scroll">
           {jobOpenings.map((job, index) => (
-            <Card key={index} className="border-none shadow-md hover:shadow-xl transition-all duration-300">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-construction-blue mb-3">{job.title}</h3>
+            <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-8">
+                <div className="mb-6">
+                  <h3 className="text-2xl font-bold text-construction-blue mb-2">{job.title}</h3>
+                  <p className="text-lg text-construction-gray font-medium">{job.company}</p>
+                </div>
                 
-                <div className="flex flex-col space-y-2 mb-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                   <div className="flex items-center gap-2">
-                    <MapPin className="h-4 w-4 text-construction-gray" />
+                    <MapPin className="h-5 w-5 text-construction-yellow" />
                     <span className="text-construction-gray">{job.location}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Briefcase className="h-4 w-4 text-construction-gray" />
+                    <Briefcase className="h-5 w-5 text-construction-yellow" />
                     <span className="text-construction-gray">{job.type}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-construction-gray" />
+                    <Clock className="h-5 w-5 text-construction-yellow" />
                     <span className="text-construction-gray">{job.experience}</span>
                   </div>
+                  <div className="flex items-center gap-2">
+                    <DollarSign className="h-5 w-5 text-construction-yellow" />
+                    <span className="text-construction-gray">{job.salary}</span>
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <GraduationCap className="h-5 w-5 text-construction-yellow" />
+                    <span className="font-semibold text-construction-blue">Qualification:</span>
+                  </div>
+                  <p className="text-construction-gray">{job.qualification}</p>
                 </div>
                 
-                <p className="text-construction-gray mb-6 line-clamp-3">{job.description}</p>
+                <p className="text-construction-gray mb-6">{job.description}</p>
                 
-                <div className="flex space-x-2">
+                <div className="flex flex-col sm:flex-row gap-3">
                   <Dialog>
                     <DialogTrigger asChild>
                       <Button 
                         variant="outline" 
-                        className="border-construction-blue text-construction-blue hover:bg-construction-blue hover:text-white"
+                        className="border-construction-blue text-construction-blue hover:bg-construction-blue hover:text-white flex-1"
                         onClick={() => setSelectedJob(job)}
                       >
                         View Details
@@ -123,8 +115,10 @@ const Careers: React.FC = () => {
                     <DialogContent className="max-w-2xl">
                       <DialogHeader>
                         <DialogTitle className="text-2xl">{selectedJob?.title}</DialogTitle>
+                        <p className="text-construction-gray">{selectedJob?.company}</p>
                       </DialogHeader>
-                      <div className="flex flex-col md:flex-row md:items-center gap-4 mb-4 mt-2">
+                      
+                      <div className="grid grid-cols-2 gap-4 mb-4 mt-4">
                         <div className="flex items-center gap-2">
                           <MapPin className="h-4 w-4 text-construction-gray" />
                           <span>{selectedJob?.location}</span>
@@ -137,21 +131,24 @@ const Careers: React.FC = () => {
                           <Clock className="h-4 w-4 text-construction-gray" />
                           <span>{selectedJob?.experience}</span>
                         </div>
+                        <div className="flex items-center gap-2">
+                          <DollarSign className="h-4 w-4 text-construction-gray" />
+                          <span>{selectedJob?.salary}</span>
+                        </div>
+                      </div>
+                      
+                      <div className="mb-4">
+                        <h4 className="font-semibold text-lg mb-2 flex items-center gap-2">
+                          <GraduationCap className="h-5 w-5 text-construction-yellow" />
+                          Qualification:
+                        </h4>
+                        <p className="mb-4">{selectedJob?.qualification}</p>
                       </div>
                       
                       <p className="mb-4">{selectedJob?.description}</p>
                       
-                      <div className="mb-4">
-                        <h4 className="font-semibold text-lg mb-2">Responsibilities:</h4>
-                        <ul className="list-disc pl-5 space-y-1">
-                          {selectedJob?.responsibilities.map((item, i) => (
-                            <li key={i}>{item}</li>
-                          ))}
-                        </ul>
-                      </div>
-                      
                       <div className="mb-6">
-                        <h4 className="font-semibold text-lg mb-2">Requirements:</h4>
+                        <h4 className="font-semibold text-lg mb-3">Required Skills & Experience:</h4>
                         <ul className="list-disc pl-5 space-y-1">
                           {selectedJob?.requirements.map((item, i) => (
                             <li key={i}>{item}</li>
@@ -159,55 +156,40 @@ const Careers: React.FC = () => {
                         </ul>
                       </div>
                       
-                      <Button className="bg-construction-blue text-white hover:bg-construction-blue/90 w-full">
+                      <Button 
+                        className="bg-construction-blue text-white hover:bg-construction-blue/90 w-full"
+                        onClick={() => window.open(selectedJob?.formLink, '_blank')}
+                      >
                         Apply for this Position
                       </Button>
                     </DialogContent>
                   </Dialog>
                   
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button className="bg-construction-yellow text-black hover:bg-construction-yellow/90">
-                        Apply Now
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-2xl">
-                      <DialogHeader>
-                        <DialogTitle>Apply for {job.title}</DialogTitle>
-                      </DialogHeader>
-                      <form className="space-y-4 mt-4">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div className="space-y-2">
-                            <Label htmlFor="firstName">First Name</Label>
-                            <Input id="firstName" placeholder="Enter your first name" />
-                          </div>
-                          <div className="space-y-2">
-                            <Label htmlFor="lastName">Last Name</Label>
-                            <Input id="lastName" placeholder="Enter your last name" />
-                          </div>
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="email">Email</Label>
-                          <Input id="email" type="email" placeholder="Enter your email" />
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="phone">Phone</Label>
-                          <Input id="phone" placeholder="Enter your phone number" />
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="resume">Upload Resume</Label>
-                          <Input id="resume" type="file" />
-                        </div>
-                        <Button type="submit" className="bg-construction-blue text-white hover:bg-construction-blue/90 w-full">
-                          Submit Application
-                        </Button>
-                      </form>
-                    </DialogContent>
-                  </Dialog>
+                  <Button 
+                    className="bg-construction-yellow text-black hover:bg-construction-yellow/90 flex-1"
+                    onClick={() => window.open(job.formLink, '_blank')}
+                  >
+                    Apply Now
+                  </Button>
                 </div>
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <div className="bg-white p-8 rounded-lg shadow-md max-w-2xl mx-auto">
+            <h3 className="text-xl font-semibold text-construction-blue mb-4">Don't see a position that fits?</h3>
+            <p className="text-construction-gray mb-4">
+              We're always looking for talented individuals to join our team. Send us your resume and we'll keep you in mind for future opportunities.
+            </p>
+            <Button 
+              className="bg-construction-blue text-white hover:bg-construction-blue/90"
+              onClick={() => window.open('https://forms.google.com/general-application', '_blank')}
+            >
+              Submit General Application
+            </Button>
+          </div>
         </div>
       </div>
     </section>

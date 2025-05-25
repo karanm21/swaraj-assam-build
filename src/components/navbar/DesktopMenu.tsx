@@ -1,7 +1,5 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
 import NavLink from './NavLink';
 import SearchDialog from './SearchDialog';
 
@@ -21,14 +19,6 @@ const DesktopMenu: React.FC<DesktopMenuProps> = ({ navLinks }) => {
       ))}
       
       <SearchDialog />
-      
-      <Link to="/contact">
-        <Button 
-          className="bg-construction-yellow text-black hover:bg-construction-yellow/90"
-        >
-          Get a Quote
-        </Button>
-      </Link>
     </div>
   );
 };

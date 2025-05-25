@@ -133,13 +133,28 @@
   .animate-on-scroll.is-visible {
     @apply opacity-100 translate-y-0;
   }
+
+  .animate-fade-in {
+    @apply opacity-0 animate-[fade-in_1s_ease-out_forwards];
+  }
 }
 
-/* Counter animations */
+/* Enhanced animations */
 @keyframes countUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -147,6 +162,19 @@
   }
 }
 
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(249, 178, 51, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(249, 178, 51, 0.6);
+  }
+}
+
 .count-animation {
   animation: countUp 2s ease-out forwards;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
 }

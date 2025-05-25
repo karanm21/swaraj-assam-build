@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ChevronDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
@@ -16,7 +15,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="relative h-screen flex items-center">
+    <section id="hero" className="relative h-screen flex items-center bg-construction-lightgray">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 bg-black/50 z-10"></div>
       <div 
@@ -50,17 +49,6 @@ const Hero: React.FC = () => {
             </Button>
           </div>
         </div>
-      </div>
-      
-      {/* Scroll Down Indicator */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-        <button 
-          onClick={() => scrollToSection('services')}
-          className="bg-white/20 hover:bg-white/30 rounded-full p-3 backdrop-blur-sm transition-all duration-300"
-          aria-label="Scroll Down"
-        >
-          <ChevronDown className="h-6 w-6 text-white" />
-        </button>
       </div>
     </section>
   );

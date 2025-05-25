@@ -2,14 +2,7 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { MapPin, ArrowRight, Construction, Calendar } from 'lucide-react';
-import { 
-  Carousel, 
-  CarouselContent, 
-  CarouselItem, 
-  CarouselNext, 
-  CarouselPrevious 
-} from '@/components/ui/carousel';
+import { MapPin, Calendar } from 'lucide-react';
 
 const projectItems = [
   {
@@ -51,117 +44,98 @@ const projectItems = [
     location: "Assam",
     year: "2022",
     description: "A cutting-edge manufacturing facility built with precision engineering and environmental considerations."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+    category: "Residential",
+    title: "Smart City Housing Project",
+    location: "Guwahati",
+    year: "2023",
+    description: "Innovative housing project incorporating smart city technologies and sustainable living solutions."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1486718448742-163732cd1544?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+    category: "Commercial",
+    title: "Shopping Mall Complex",
+    location: "Assam",
+    year: "2022",
+    description: "Multi-level shopping and entertainment complex serving as a regional commercial hub."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+    category: "Infrastructure",
+    title: "Water Treatment Facility",
+    location: "Assam",
+    year: "2021",
+    description: "Modern water treatment plant ensuring clean water supply to urban and rural communities."
   }
 ];
 
 const Projects: React.FC = () => {
-  const [activeProject, setActiveProject] = useState<number | null>(null);
+  const [showAll, setShowAll] = useState(false);
   
-  const handleMouseEnter = (index: number) => {
-    setActiveProject(index);
-  };
-  
-  const handleMouseLeave = () => {
-    setActiveProject(null);
-  };
+  const displayedProjects = showAll ? projectItems : projectItems.slice(0, 3);
   
   return (
     <section id="projects" className="section-padding bg-construction-lightgray">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
-          <div>
-            <h2 className="section-title mb-2">Our Projects</h2>
-            <p className="text-lg text-construction-gray max-w-2xl">
-              Explore our portfolio of successful construction projects across Guwahati and Assam.
-            </p>
-          </div>
-          <Button className="bg-construction-blue text-white hover:bg-construction-blue/90 mt-4 md:mt-0">
-            View All Projects
-          </Button>
+        <div className="text-center mb-12">
+          <h2 className="section-title">Our Projects</h2>
+          <p className="text-lg text-construction-gray max-w-3xl mx-auto">
+            Explore our portfolio of successful construction projects across Guwahati and Assam.
+          </p>
         </div>
         
-        {/* Featured Projects Carousel */}
-        <div className="mb-16">
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
-              {projectItems.map((project, index) => (
-                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1">
-                    <Card 
-                      className="overflow-hidden border-none shadow-md hover:shadow-xl transition-all duration-300"
-                      onMouseEnter={() => handleMouseEnter(index)}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      <div className="h-64 overflow-hidden relative">
-                        <img 
-                          src={project.image} 
-                          alt={project.title} 
-                          className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                        />
-                        {activeProject === index && (
-                          <div className="absolute inset-0 bg-black/60 flex items-center justify-center transition-opacity duration-300 opacity-100">
-                            <div className="text-center p-4">
-                              <p className="text-white mb-4">{project.description}</p>
-                              <Button className="bg-construction-yellow text-black hover:bg-construction-yellow/90">
-                                View Details
-                              </Button>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                      <CardContent className="p-6">
-                        <span className="inline-block px-3 py-1 bg-construction-yellow/10 text-construction-blue text-sm font-medium rounded mb-3">
-                          {project.category}
-                        </span>
-                        <h3 className="text-xl font-semibold text-construction-darkblue mb-1">{project.title}</h3>
-                        <div className="flex flex-col space-y-2 text-construction-gray">
-                          <div className="flex items-center gap-1">
-                            <MapPin className="h-4 w-4" /> {project.location}
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Calendar className="h-4 w-4" /> {project.year}
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
+        {/* Projects Grid */}
+        <div className="space-y-8 animate-on-scroll">
+          {displayedProjects.map((project, index) => (
+            <Card key={index} className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[400px]">
+                {/* Project Image */}
+                <div className="relative overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent"></div>
+                </div>
+                
+                {/* Project Content */}
+                <CardContent className="p-8 flex flex-col justify-center">
+                  <span className="inline-block px-4 py-2 bg-construction-yellow text-black text-sm font-medium rounded mb-4 w-fit">
+                    {project.category}
+                  </span>
+                  <h3 className="text-3xl font-bold text-construction-blue mb-4">{project.title}</h3>
+                  <p className="text-lg text-construction-gray mb-6 leading-relaxed">{project.description}</p>
+                  
+                  <div className="flex flex-col space-y-3 text-construction-gray mb-6">
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-5 w-5 text-construction-yellow" /> 
+                      <span className="font-medium">{project.location}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Calendar className="h-5 w-5 text-construction-yellow" /> 
+                      <span className="font-medium">Completed {project.year}</span>
+                    </div>
                   </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="flex items-center justify-end gap-2 mt-4">
-              <CarouselPrevious className="position-static bg-construction-blue text-white hover:bg-construction-darkblue" />
-              <CarouselNext className="position-static bg-construction-blue text-white hover:bg-construction-darkblue" />
-            </div>
-          </Carousel>
-        </div>
-        
-        {/* Project Categories */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 animate-on-scroll">
-          {["Commercial", "Residential", "Infrastructure", "Industrial"].map((category, index) => (
-            <Button 
-              key={index}
-              variant="outline" 
-              className="p-8 h-auto flex flex-col items-center justify-center gap-4 border-2 border-construction-blue/20 hover:border-construction-blue hover:bg-construction-blue/5 transition-all"
-            >
-              <Construction className="h-12 w-12 text-construction-blue" />
-              <span className="text-lg font-medium">{category}</span>
-            </Button>
+                  
+                  <Button className="bg-construction-blue text-white hover:bg-construction-blue/90 w-fit">
+                    View Project Details
+                  </Button>
+                </CardContent>
+              </div>
+            </Card>
           ))}
         </div>
         
-        {/* View All Projects Link */}
+        {/* Show All/Less Button */}
         <div className="flex justify-center mt-12">
           <Button 
-            className="group flex items-center space-x-2 bg-transparent text-construction-blue hover:bg-transparent"
+            onClick={() => setShowAll(!showAll)}
+            className="bg-construction-yellow text-black hover:bg-construction-yellow/90 px-8 py-3"
           >
-            <span>Explore All Our Projects</span>
-            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            {showAll ? 'Show Less Projects' : 'Explore All Our Projects'}
           </Button>
         </div>
       </div>
@@ -170,4 +144,3 @@ const Projects: React.FC = () => {
 };
 
 export default Projects;
-

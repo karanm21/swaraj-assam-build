@@ -1,7 +1,5 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
 import NavLink from './NavLink';
 
 interface MobileMenuProps {
@@ -25,13 +23,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, navLinks, onLinkClick }
             className="py-2 text-left"
           />
         ))}
-        <Link to="/contact" onClick={onLinkClick}>
-          <Button 
-            className="bg-construction-yellow text-black hover:bg-construction-yellow/90 w-full"
-          >
-            Get a Quote
-          </Button>
-        </Link>
       </div>
     </div>
   );

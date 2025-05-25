@@ -39,18 +39,20 @@ const Index: React.FC = () => {
   }, []);
   
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <Navbar />
       <Hero />
-      <About />
-      <Services />
-      <Projects />
-      <Team />
-      <Gallery />
-      <Careers />
-      <Stats />
-      <Testimonials />
-      <Contact />
+      <div className="bg-white">
+        <About />
+        <Services />
+        <Projects />
+        <Team />
+        <Gallery />
+        <Careers />
+        <Stats />
+        <Testimonials />
+        <Contact />
+      </div>
       <Footer />
     </div>
   );

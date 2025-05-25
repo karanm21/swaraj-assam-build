@@ -36,6 +36,21 @@ const galleryImages = [
     src: "https://images.unsplash.com/photo-1542621334-a254cf47733d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
     alt: "Commercial Office Building",
     category: "Commercial"
+  },
+  {
+    src: "https://images.unsplash.com/photo-1486718448742-163732cd1544?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+    alt: "Shopping Complex",
+    category: "Commercial"
+  },
+  {
+    src: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+    alt: "Infrastructure Development",
+    category: "Infrastructure"
+  },
+  {
+    src: "https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+    alt: "Government Building",
+    category: "Institutional"
   }
 ];
 
@@ -61,19 +76,19 @@ const Gallery: React.FC = () => {
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-2 mb-8">
           <button 
-            className={`px-4 py-2 rounded-md transition-colors ${
+            className={`px-6 py-3 rounded-md transition-colors font-medium ${
               selectedCategory === null 
                 ? 'bg-construction-blue text-white' 
                 : 'bg-gray-100 hover:bg-gray-200'
             }`}
             onClick={() => setSelectedCategory(null)}
           >
-            All
+            All Projects
           </button>
           {categories.map((category, index) => (
             <button 
               key={index}
-              className={`px-4 py-2 rounded-md transition-colors ${
+              className={`px-6 py-3 rounded-md transition-colors font-medium ${
                 selectedCategory === category 
                   ? 'bg-construction-blue text-white' 
                   : 'bg-gray-100 hover:bg-gray-200'
@@ -86,34 +101,37 @@ const Gallery: React.FC = () => {
         </div>
         
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 animate-on-scroll">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 animate-on-scroll">
           {filteredImages.map((image, index) => (
             <Dialog key={index}>
               <DialogTrigger asChild>
-                <div className="overflow-hidden rounded-lg cursor-pointer h-64 relative group">
+                <div className="relative overflow-hidden rounded-lg cursor-pointer h-80 group">
                   <img 
                     src={image.src} 
                     alt={image.alt} 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-opacity flex items-center justify-center">
-                    <p className="text-white text-lg font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                      View Larger
-                    </p>
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-opacity flex items-center justify-center">
+                    <div className="text-white text-center opacity-0 group-hover:opacity-100 transition-opacity p-4">
+                      <p className="text-lg font-semibold mb-2">{image.alt}</p>
+                      <span className="px-3 py-1 bg-construction-yellow text-black text-sm rounded">
+                        {image.category}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </DialogTrigger>
-              <DialogContent className="max-w-4xl">
+              <DialogContent className="max-w-4xl p-0">
                 <div className="aspect-video">
                   <img 
                     src={image.src} 
                     alt={image.alt} 
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover rounded-lg"
                   />
                 </div>
-                <div className="mt-2">
-                  <p className="font-medium">{image.alt}</p>
-                  <p className="text-sm text-construction-gray">{image.category}</p>
+                <div className="p-6">
+                  <h3 className="font-semibold text-xl mb-2">{image.alt}</h3>
+                  <p className="text-construction-gray">{image.category} Project</p>
                 </div>
               </DialogContent>
             </Dialog>

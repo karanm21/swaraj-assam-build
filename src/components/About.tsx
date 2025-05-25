@@ -1,60 +1,96 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { CheckCircle, Users, Award, Clock } from 'lucide-react';
 
 const About: React.FC = () => {
+  const features = [
+    { icon: <CheckCircle className="h-6 w-6" />, title: "Quality Craftsmanship", description: "Delivering excellence in every project with attention to detail" },
+    { icon: <Clock className="h-6 w-6" />, title: "Timely Delivery", description: "Meeting deadlines without compromising on quality standards" },
+    { icon: <Users className="h-6 w-6" />, title: "Professional Team", description: "Skilled professionals with years of industry experience" },
+    { icon: <Award className="h-6 w-6" />, title: "Customer Satisfaction", description: "Building lasting relationships through exceptional service" }
+  ];
+
   return (
     <section id="about" className="section-padding bg-white">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* About Image */}
-          <div className="relative">
-            <div className="rounded-lg overflow-hidden shadow-xl">
-              <img 
-                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
-                alt="Swaraj Infra Team" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-6 -right-6 bg-construction-yellow p-6 rounded-lg hidden md:block">
-              <div className="text-black font-bold text-4xl">10+</div>
-              <div className="text-black font-medium">Years of Experience</div>
-            </div>
-          </div>
-          
-          {/* About Content */}
-          <div>
-            <h2 className="section-title">About Swaraj Infra</h2>
-            <p className="text-lg text-construction-gray mb-6">
-              Swaraj Infra is a leading construction company based in Guwahati, Assam. With over a decade of experience, we've established ourselves as a reliable partner in building the future of our region.
-            </p>
-            <p className="text-lg text-construction-gray mb-6">
-              Our team of highly skilled professionals is dedicated to delivering projects that meet the highest standards of quality and safety. We specialize in commercial, residential, and infrastructure development projects across Assam.
-            </p>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              <div className="flex items-center space-x-2">
-                <div className="h-2 w-2 bg-construction-blue rounded-full"></div>
-                <span className="text-construction-gray">Quality Craftsmanship</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="h-2 w-2 bg-construction-blue rounded-full"></div>
-                <span className="text-construction-gray">Timely Delivery</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="h-2 w-2 bg-construction-blue rounded-full"></div>
-                <span className="text-construction-gray">Professional Team</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="h-2 w-2 bg-construction-blue rounded-full"></div>
-                <span className="text-construction-gray">Customer Satisfaction</span>
-              </div>
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <h2 className="section-title">About Swaraj Infra</h2>
+          <p className="text-xl text-construction-gray max-w-4xl mx-auto leading-relaxed">
+            Building the future of Assam with over a decade of excellence in construction and infrastructure development
+          </p>
+        </div>
+
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
+          {/* Left Content */}
+          <div className="space-y-6">
+            <div className="bg-construction-yellow/10 p-8 rounded-lg">
+              <h3 className="text-2xl font-bold text-construction-blue mb-4">Our Vision</h3>
+              <p className="text-lg text-construction-gray leading-relaxed">
+                To be the leading construction company in Northeast India, transforming the region's infrastructure landscape with innovative solutions and sustainable practices.
+              </p>
             </div>
             
-            <Button className="bg-construction-blue text-white hover:bg-construction-blue/90">
-              Learn More About Us
-            </Button>
+            <div className="bg-construction-blue/5 p-8 rounded-lg">
+              <h3 className="text-2xl font-bold text-construction-blue mb-4">Our Mission</h3>
+              <p className="text-lg text-construction-gray leading-relaxed">
+                Delivering world-class construction services that exceed client expectations while contributing to the economic growth and development of our community.
+              </p>
+            </div>
           </div>
+
+          {/* Right Stats */}
+          <div className="grid grid-cols-2 gap-6">
+            <Card className="text-center p-6 border-2 border-construction-yellow/20 hover:border-construction-yellow transition-colors">
+              <CardContent className="p-0">
+                <div className="text-4xl font-bold text-construction-blue mb-2">10+</div>
+                <div className="text-construction-gray">Years Experience</div>
+              </CardContent>
+            </Card>
+            <Card className="text-center p-6 border-2 border-construction-blue/20 hover:border-construction-blue transition-colors">
+              <CardContent className="p-0">
+                <div className="text-4xl font-bold text-construction-blue mb-2">250+</div>
+                <div className="text-construction-gray">Projects Completed</div>
+              </CardContent>
+            </Card>
+            <Card className="text-center p-6 border-2 border-construction-yellow/20 hover:border-construction-yellow transition-colors">
+              <CardContent className="p-0">
+                <div className="text-4xl font-bold text-construction-blue mb-2">120+</div>
+                <div className="text-construction-gray">Team Members</div>
+              </CardContent>
+            </Card>
+            <Card className="text-center p-6 border-2 border-construction-blue/20 hover:border-construction-blue transition-colors">
+              <CardContent className="p-0">
+                <div className="text-4xl font-bold text-construction-blue mb-2">100%</div>
+                <div className="text-construction-gray">Client Satisfaction</div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {features.map((feature, index) => (
+            <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow border-none">
+              <CardContent className="p-0">
+                <div className="text-construction-yellow mb-4 flex justify-center">
+                  {feature.icon}
+                </div>
+                <h4 className="font-semibold text-construction-blue mb-2">{feature.title}</h4>
+                <p className="text-sm text-construction-gray">{feature.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center">
+          <Button className="bg-construction-blue text-white hover:bg-construction-blue/90 px-8 py-3">
+            Learn More About Our Services
+          </Button>
         </div>
       </div>
     </section>
