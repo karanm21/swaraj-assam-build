@@ -6,9 +6,11 @@ import Footer from '@/components/Footer';
 
 const CareersPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <Navbar />
-      <Careers />
+      <div className="pt-20 bg-construction-lightgray">
+        <Careers />
+      </div>
       <Footer />
     </div>
   );

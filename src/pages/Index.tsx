@@ -44,13 +44,21 @@ const Index: React.FC = () => {
       <Hero />
       <div className="bg-white">
         <About />
-        <Services />
+        <div className="bg-construction-lightgray">
+          <Services />
+        </div>
         <Projects />
-        <Team />
+        <div className="bg-construction-lightgray">
+          <Team />
+        </div>
         <Gallery />
-        <Careers />
+        <div className="bg-construction-lightgray">
+          <Careers />
+        </div>
         <Stats />
-        <Testimonials />
+        <div className="bg-construction-lightgray">
+          <Testimonials />
+        </div>
         <Contact />
       </div>
       <Footer />

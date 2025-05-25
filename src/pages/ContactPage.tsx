@@ -6,9 +6,11 @@ import Footer from '@/components/Footer';
 
 const ContactPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <Navbar />
-      <Contact />
+      <div className="pt-20 bg-white">
+        <Contact />
+      </div>
       <Footer />
     </div>
   );

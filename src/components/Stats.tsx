@@ -39,12 +39,11 @@ const Stats: React.FC = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
+        if (entries[0].isIntersecting && !isVisible) {
           setIsVisible(true);
-          observer.unobserve(entries[0].target);
         }
       },
-      { threshold: 0.25 }
+      { threshold: 0.3 }
     );
 
     if (sectionRef.current) {
@@ -56,35 +55,32 @@ const Stats: React.FC = () => {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, []);
+  }, [isVisible]);
 
-  // Animation for counting up the stats
+  // Improved animation for counting up the stats
   useEffect(() => {
     if (isVisible) {
-      const counters = stats.map((stat, index) => {
-        const duration = 2500; // 2.5 seconds
-        const increment = stat.value / (duration / 50); // Update every 50ms
-        let currentValue = 0;
+      stats.forEach((stat, index) => {
+        const duration = 1500; // 1.5 seconds
+        const steps = 30;
+        const increment = stat.value / steps;
+        let currentStep = 0;
         
-        return setInterval(() => {
-          currentValue += increment;
-          
-          if (currentValue >= stat.value) {
-            currentValue = stat.value;
-            clearInterval(counters[index]);
-          }
+        const timer = setInterval(() => {
+          currentStep++;
+          const currentValue = Math.min(Math.floor(increment * currentStep), stat.value);
           
           setCountedValues(prev => {
             const newValues = [...prev];
-            newValues[index] = Math.floor(currentValue);
+            newValues[index] = currentValue;
             return newValues;
           });
-        }, 50);
+          
+          if (currentStep >= steps) {
+            clearInterval(timer);
+          }
+        }, duration / steps);
       });
-      
-      return () => {
-        counters.forEach(interval => clearInterval(interval));
-      };
     }
   }, [isVisible]);
 
@@ -92,9 +88,9 @@ const Stats: React.FC = () => {
     <section ref={sectionRef} id="stats" className="section-padding bg-construction-lightgray relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-construction-blue rounded-full"></div>
-        <div className="absolute bottom-20 right-20 w-24 h-24 bg-construction-yellow rounded-full"></div>
-        <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-construction-blue rounded-full"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 bg-construction-blue rounded-full animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-24 h-24 bg-construction-yellow rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-construction-blue rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -109,16 +105,19 @@ const Stats: React.FC = () => {
           {stats.map((stat, index) => (
             <Card 
               key={index} 
-              className={`border-none shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 bg-white group ${
-                isVisible ? 'animate-fade-in' : ''
+              className={`border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-white group transform ${
+                isVisible ? 'animate-fade-in' : 'opacity-0 translate-y-8'
               }`}
-              style={{ animationDelay: `${index * 200}ms` }}
+              style={{ 
+                animationDelay: `${index * 150}ms`,
+                animationFillMode: 'forwards'
+              }}
             >
               <CardContent className="flex flex-col items-center p-8 text-center relative">
                 <div className="mb-6 group-hover:scale-110 transition-transform duration-300">
                   {stat.icon}
                 </div>
-                <div className={`text-5xl font-bold mb-3 text-construction-blue ${isVisible ? 'count-animation' : ''}`}>
+                <div className="text-5xl font-bold mb-3 text-construction-blue transition-all duration-300">
                   {countedValues[index]}{stat.suffix}
                 </div>
                 <div className="text-construction-gray font-medium text-lg">{stat.label}</div>
