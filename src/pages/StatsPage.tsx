@@ -6,10 +6,12 @@ import Footer from '@/components/Footer';
 
 const StatsPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-construction-lightgray">
+    <div className="min-h-screen bg-white">
       <Navbar />
       <div className="pt-20">
-        <Stats />
+        <div className="bg-construction-lightgray">
+          <Stats />
+        </div>
       </div>
       <Footer />
     </div>
