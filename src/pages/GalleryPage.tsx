@@ -6,9 +6,9 @@ import Footer from '@/components/Footer';
 
 const GalleryPage: React.FC = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <Navbar />
-      <div className="pt-20 bg-white">
+      <div className="pt-20">
         <Gallery />
       </div>
       <Footer />
