@@ -9,7 +9,7 @@ interface DesktopMenuProps {
 
 const DesktopMenu: React.FC<DesktopMenuProps> = ({ navLinks }) => {
   return (
-    <div className="hidden md:flex items-center space-x-4">
+    <div className="hidden md:flex items-center space-x-6">
       {navLinks.map((link, index) => (
         <NavLink
           key={index}

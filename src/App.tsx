@@ -11,7 +11,6 @@ import ProjectsPage from "./pages/ProjectsPage";
 import TeamPage from "./pages/TeamPage";
 import GalleryPage from "./pages/GalleryPage";
 import CareersPage from "./pages/CareersPage";
-import StatsPage from "./pages/StatsPage";
 import TestimonialsPage from "./pages/TestimonialsPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
@@ -32,7 +31,6 @@ const App = () => (
           <Route path="/team" element={<TeamPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/careers" element={<CareersPage />} />
-          <Route path="/stats" element={<StatsPage />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

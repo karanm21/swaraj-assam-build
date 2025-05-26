@@ -4,7 +4,6 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import Projects from '@/components/Projects';
-import Stats from '@/components/Stats';
 import Testimonials from '@/components/Testimonials';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
@@ -55,7 +54,6 @@ const Index: React.FC = () => {
         <div className="bg-construction-lightgray">
           <Careers />
         </div>
-        <Stats />
         <div className="bg-construction-lightgray">
           <Testimonials />
         </div>

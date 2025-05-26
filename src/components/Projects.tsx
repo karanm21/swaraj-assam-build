@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { MapPin, Calendar } from 'lucide-react';
@@ -85,11 +86,11 @@ const Projects: React.FC = () => {
         </div>
       </div>
       
-      {/* Projects Grid - With horizontal spacing */}
-      <div className="container mx-auto px-4">
+      {/* Projects Grid - Full width with vertical spacing */}
+      <div className="w-full">
         <div className="space-y-8 animate-on-scroll">
           {displayedProjects.map((project, index) => (
-            <div key={index} className="relative overflow-hidden h-96 group mx-4 rounded-lg">
+            <div key={index} className="relative overflow-hidden h-96 group w-full">
               {/* Background Image */}
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
