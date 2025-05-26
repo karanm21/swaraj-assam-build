@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle, Users, Award, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const About: React.FC = () => {
   const features = [
@@ -88,9 +88,11 @@ const About: React.FC = () => {
 
         {/* Call to Action */}
         <div className="text-center">
-          <Button className="bg-construction-blue text-white hover:bg-construction-blue/90 px-8 py-3">
-            Learn More About Our Services
-          </Button>
+          <Link to="/services">
+            <Button className="bg-construction-blue text-white hover:bg-construction-blue/90 px-8 py-3">
+              Learn More About Our Services
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

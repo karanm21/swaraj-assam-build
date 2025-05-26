@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { MapPin, Calendar } from 'lucide-react';
@@ -86,50 +85,50 @@ const Projects: React.FC = () => {
         </div>
       </div>
       
-      {/* Projects Grid - Full width with no horizontal padding */}
-      <div className="space-y-0 animate-on-scroll">
-        {displayedProjects.map((project, index) => (
-          <div key={index} className="relative overflow-hidden h-96 group w-full">
-            {/* Background Image - Full width */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105 w-full"
-              style={{ backgroundImage: `url(${project.image})` }}
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50 w-full"></div>
-            
-            {/* Content Overlay */}
-            <div className="relative z-10 h-full flex items-center w-full">
-              <div className="container mx-auto px-8">
-                <div className="max-w-2xl text-white">
-                  <span className="inline-block px-4 py-2 bg-construction-yellow text-black text-sm font-medium rounded mb-4">
-                    {project.category}
-                  </span>
-                  <h3 className="text-4xl font-bold mb-4">{project.title}</h3>
-                  <p className="text-lg mb-6 leading-relaxed opacity-90">{project.description}</p>
-                  
-                  <div className="flex flex-col space-y-3 mb-6">
-                    <div className="flex items-center gap-2">
-                      <MapPin className="h-5 w-5 text-construction-yellow" /> 
-                      <span className="font-medium">{project.location}</span>
+      {/* Projects Grid - With horizontal spacing */}
+      <div className="container mx-auto px-4">
+        <div className="space-y-8 animate-on-scroll">
+          {displayedProjects.map((project, index) => (
+            <div key={index} className="relative overflow-hidden h-96 group mx-4 rounded-lg">
+              {/* Background Image */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                style={{ backgroundImage: `url(${project.image})` }}
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+              
+              {/* Content Overlay */}
+              <div className="relative z-10 h-full flex items-center">
+                <div className="container mx-auto px-8">
+                  <div className="max-w-2xl text-white">
+                    <span className="inline-block px-4 py-2 bg-construction-yellow text-black text-sm font-medium rounded mb-4">
+                      {project.category}
+                    </span>
+                    <h3 className="text-4xl font-bold mb-4">{project.title}</h3>
+                    <p className="text-lg mb-6 leading-relaxed opacity-90">{project.description}</p>
+                    
+                    <div className="flex flex-col space-y-3 mb-6">
+                      <div className="flex items-center gap-2">
+                        <MapPin className="h-5 w-5 text-construction-yellow" /> 
+                        <span className="font-medium">{project.location}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Calendar className="h-5 w-5 text-construction-yellow" /> 
+                        <span className="font-medium">Completed {project.year}</span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Calendar className="h-5 w-5 text-construction-yellow" /> 
-                      <span className="font-medium">Completed {project.year}</span>
-                    </div>
+                    
+                    <Button className="bg-construction-blue text-white hover:bg-construction-blue/90">
+                      View Project Details
+                    </Button>
                   </div>
-                  
-                  <Button className="bg-construction-blue text-white hover:bg-construction-blue/90">
-                    View Project Details
-                  </Button>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-      
-      {/* Show All/Less Button */}
-      <div className="container mx-auto px-4">
+          ))}
+        </div>
+        
+        {/* Show All/Less Button */}
         <div className="flex justify-center mt-12">
           <Button 
             onClick={() => setShowAll(!showAll)}

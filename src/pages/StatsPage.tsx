@@ -9,9 +9,7 @@ const StatsPage: React.FC = () => {
     <div className="min-h-screen bg-white">
       <Navbar />
       <div className="pt-20">
-        <div className="bg-construction-lightgray">
-          <Stats />
-        </div>
+        <Stats />
       </div>
       <Footer />
     </div>
