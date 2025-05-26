@@ -1,7 +1,7 @@
-
 import React, { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { MapPin, Calendar } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ProjectDetailsDialog from './ProjectDetailsDialog';
 
 const projectItems = [
@@ -72,26 +72,10 @@ const projectItems = [
 ];
 
 const Projects: React.FC = () => {
-  const [showAll, setShowAll] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const buttonRef = useRef<HTMLDivElement>(null);
   
-  const displayedProjects = showAll ? projectItems : projectItems.slice(0, 3);
-
-  const handleShowAll = () => {
-    setShowAll(!showAll);
-    
-    // If we're hiding projects (going from showAll=true to false), scroll to button
-    if (showAll && buttonRef.current) {
-      setTimeout(() => {
-        buttonRef.current?.scrollIntoView({ 
-          behavior: 'smooth', 
-          block: 'center' 
-        });
-      }, 100);
-    }
-  };
+  const displayedProjects = projectItems.slice(0, 3);
 
   const handleProjectDetails = (project: any) => {
     setSelectedProject(project);
@@ -156,14 +140,13 @@ const Projects: React.FC = () => {
             ))}
           </div>
           
-          {/* Show All/Less Button */}
-          <div ref={buttonRef} className="flex justify-center mt-12">
-            <Button 
-              onClick={handleShowAll}
-              className="bg-construction-yellow text-black hover:bg-construction-yellow/90 px-8 py-3"
-            >
-              {showAll ? 'Show Less Projects' : 'Explore All Our Projects'}
-            </Button>
+          {/* View All Projects Button */}
+          <div className="flex justify-center mt-12">
+            <Link to="/projects">
+              <Button className="bg-construction-yellow text-black hover:bg-construction-yellow/90 px-8 py-3">
+                View All Our Projects
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
 const Footer: React.FC = () => {
@@ -22,29 +23,49 @@ const Footer: React.FC = () => {
             <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#hero" className="text-white/80 hover:text-construction-yellow transition-colors">
+                <Link to="/" className="text-white/80 hover:text-construction-yellow transition-colors">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#about" className="text-white/80 hover:text-construction-yellow transition-colors">
+                <Link to="/about" className="text-white/80 hover:text-construction-yellow transition-colors">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="text-white/80 hover:text-construction-yellow transition-colors">
+                <Link to="/services" className="text-white/80 hover:text-construction-yellow transition-colors">
                   Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#projects" className="text-white/80 hover:text-construction-yellow transition-colors">
-                  Projects
-                </a>
+                <Link to="/projects" className="text-white/80 hover:text-construction-yellow transition-colors">
+                  Our Work
+                </Link>
               </li>
               <li>
-                <a href="#contact" className="text-white/80 hover:text-construction-yellow transition-colors">
+                <Link to="/team" className="text-white/80 hover:text-construction-yellow transition-colors">
+                  Our Team
+                </Link>
+              </li>
+              <li>
+                <Link to="/gallery" className="text-white/80 hover:text-construction-yellow transition-colors">
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link to="/careers" className="text-white/80 hover:text-construction-yellow transition-colors">
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link to="/testimonials" className="text-white/80 hover:text-construction-yellow transition-colors">
+                  Testimonials
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-white/80 hover:text-construction-yellow transition-colors">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -20,17 +21,6 @@ const Hero: React.FC = () => {
 
     return () => clearInterval(interval);
   }, [backgroundImages.length]);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offsetTop = element.offsetTop;
-      window.scrollTo({
-        top: offsetTop - 80,
-        behavior: 'smooth'
-      });
-    }
-  };
 
   return (
     <section id="hero" className="relative h-screen flex items-center bg-construction-lightgray">
@@ -53,18 +43,16 @@ const Hero: React.FC = () => {
             Swaraj Infra is a leading construction company in Guwahati, Assam, delivering quality construction services and innovative solutions.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Button 
-              onClick={() => scrollToSection('services')}
-              className="bg-construction-yellow text-black hover:bg-construction-yellow/90 text-lg py-6 px-8"
-            >
-              Our Services
-            </Button>
-            <Button 
-              onClick={() => scrollToSection('contact')}
-              className="bg-white text-construction-blue hover:bg-white/90 text-lg py-6 px-8"
-            >
-              Contact Us
-            </Button>
+            <Link to="/services">
+              <Button className="bg-construction-yellow text-black hover:bg-construction-yellow/90 text-lg py-6 px-8">
+                Our Services
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button className="bg-white text-construction-blue hover:bg-white/90 text-lg py-6 px-8">
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
