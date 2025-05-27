@@ -1,10 +1,16 @@
 
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+  
+  // Scroll to top whenever the route changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location.pathname]);
   
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -29,7 +35,6 @@ const Footer: React.FC = () => {
               <li>
                 <Link 
                   to="/" 
-                  onClick={scrollToTop}
                   className="text-white/80 hover:text-construction-yellow transition-colors"
                 >
                   Home
@@ -38,7 +43,6 @@ const Footer: React.FC = () => {
               <li>
                 <Link 
                   to="/about" 
-                  onClick={scrollToTop}
                   className="text-white/80 hover:text-construction-yellow transition-colors"
                 >
                   About Us
@@ -47,7 +51,6 @@ const Footer: React.FC = () => {
               <li>
                 <Link 
                   to="/services" 
-                  onClick={scrollToTop}
                   className="text-white/80 hover:text-construction-yellow transition-colors"
                 >
                   Services
@@ -56,7 +59,6 @@ const Footer: React.FC = () => {
               <li>
                 <Link 
                   to="/careers" 
-                  onClick={scrollToTop}
                   className="text-white/80 hover:text-construction-yellow transition-colors"
                 >
                   Careers
@@ -65,7 +67,6 @@ const Footer: React.FC = () => {
               <li>
                 <Link 
                   to="/contact" 
-                  onClick={scrollToTop}
                   className="text-white/80 hover:text-construction-yellow transition-colors"
                 >
                   Contact
