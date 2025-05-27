@@ -6,6 +6,10 @@ import Logo from './Logo';
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  
   return (
     <footer className="bg-construction-darkblue text-white py-16">
       <div className="container mx-auto px-4">
@@ -23,27 +27,47 @@ const Footer: React.FC = () => {
             <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-white/80 hover:text-construction-yellow transition-colors">
+                <Link 
+                  to="/" 
+                  onClick={scrollToTop}
+                  className="text-white/80 hover:text-construction-yellow transition-colors"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-white/80 hover:text-construction-yellow transition-colors">
+                <Link 
+                  to="/about" 
+                  onClick={scrollToTop}
+                  className="text-white/80 hover:text-construction-yellow transition-colors"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-white/80 hover:text-construction-yellow transition-colors">
+                <Link 
+                  to="/services" 
+                  onClick={scrollToTop}
+                  className="text-white/80 hover:text-construction-yellow transition-colors"
+                >
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="text-white/80 hover:text-construction-yellow transition-colors">
+                <Link 
+                  to="/careers" 
+                  onClick={scrollToTop}
+                  className="text-white/80 hover:text-construction-yellow transition-colors"
+                >
                   Careers
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-white/80 hover:text-construction-yellow transition-colors">
+                <Link 
+                  to="/contact" 
+                  onClick={scrollToTop}
+                  className="text-white/80 hover:text-construction-yellow transition-colors"
+                >
                   Contact
                 </Link>
               </li>
