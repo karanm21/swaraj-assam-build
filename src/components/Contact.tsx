@@ -17,7 +17,7 @@ const Contact: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           {/* Contact Information */}
           <div className="space-y-6">
             <Card className="border-none shadow-md">
@@ -61,9 +61,9 @@ const Contact: React.FC = () => {
           
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card className="border-none shadow-md">
-              <CardContent className="p-6">
-                <form className="space-y-6">
+            <Card className="border-none shadow-md h-full">
+              <CardContent className="p-6 h-full flex flex-col">
+                <form className="space-y-6 flex-1">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label htmlFor="name" className="text-sm font-medium text-construction-gray">
@@ -99,14 +99,14 @@ const Contact: React.FC = () => {
                     />
                   </div>
                   
-                  <div className="space-y-2">
+                  <div className="space-y-2 flex-1">
                     <label htmlFor="message" className="text-sm font-medium text-construction-gray">
                       Your Message
                     </label>
                     <Textarea
                       id="message"
                       placeholder="Tell us about your project..."
-                      className="min-h-[150px] border-construction-gray/30 focus:border-construction-blue"
+                      className="min-h-[150px] border-construction-gray/30 focus:border-construction-blue flex-1"
                     />
                   </div>
                   

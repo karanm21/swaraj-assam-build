@@ -57,6 +57,24 @@ const teamMembers = [
     email: "ankita@swarajinfra.com",
     facebook: "https://facebook.com/ankitadas",
     instagram: "https://instagram.com/ankitadas"
+  },
+  {
+    name: "Rahul Mehta",
+    position: "Quality Control Manager",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+    bio: "Rahul ensures that every project meets our stringent quality standards and exceeds client expectations.",
+    email: "rahul@swarajinfra.com",
+    facebook: "https://facebook.com/rahulmehta",
+    instagram: "https://instagram.com/rahulmehta"
+  },
+  {
+    name: "Kavya Singh",
+    position: "Environmental Engineer",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+    bio: "Kavya specializes in sustainable construction practices and environmental compliance for all our projects.",
+    email: "kavya@swarajinfra.com",
+    facebook: "https://facebook.com/kavyasingh",
+    instagram: "https://instagram.com/kavyasingh"
   }
 ];
 
@@ -71,7 +89,7 @@ const Team: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-on-scroll">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 animate-on-scroll">
           {teamMembers.map((member, index) => (
             <Card key={index} className="border-none shadow-md hover:shadow-xl transition-all duration-300 group">
               <div className="aspect-square overflow-hidden">

@@ -38,28 +38,8 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/projects" className="text-white/80 hover:text-construction-yellow transition-colors">
-                  Our Work
-                </Link>
-              </li>
-              <li>
-                <Link to="/team" className="text-white/80 hover:text-construction-yellow transition-colors">
-                  Our Team
-                </Link>
-              </li>
-              <li>
-                <Link to="/gallery" className="text-white/80 hover:text-construction-yellow transition-colors">
-                  Gallery
-                </Link>
-              </li>
-              <li>
                 <Link to="/careers" className="text-white/80 hover:text-construction-yellow transition-colors">
                   Careers
-                </Link>
-              </li>
-              <li>
-                <Link to="/testimonials" className="text-white/80 hover:text-construction-yellow transition-colors">
-                  Testimonials
                 </Link>
               </li>
               <li>
