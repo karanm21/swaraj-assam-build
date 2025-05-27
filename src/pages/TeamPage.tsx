@@ -25,21 +25,17 @@ const TeamPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      {/* Enhanced Hero Section */}
-      <div className="relative pt-20 pb-16 bg-gradient-to-r from-construction-yellow via-construction-blue to-construction-darkblue">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative container mx-auto px-4 text-center">
+      {/* Simple Hero Section */}
+      <div className="relative pt-20 pb-16 bg-construction-blue">
+        <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 animate-on-scroll">
             Our <span className="text-construction-yellow">Team</span>
           </h1>
+          <div className="w-24 h-1 bg-construction-yellow mx-auto mb-6"></div>
           <p className="text-xl text-white/90 max-w-3xl mx-auto animate-on-scroll">
             Meet the dedicated professionals who bring expertise, passion, and innovation to every project
           </p>
         </div>
-        {/* Team-themed decorations */}
-        <div className="absolute top-16 left-12 w-20 h-20 bg-white/10 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-16 right-12 w-16 h-16 border-4 border-construction-yellow/40 rounded-full animate-spin"></div>
-        <div className="absolute top-1/3 right-1/3 w-6 h-6 bg-construction-yellow animate-ping"></div>
       </div>
       <div className="bg-construction-lightgray">
         <Team />

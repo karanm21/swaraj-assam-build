@@ -25,21 +25,17 @@ const ContactPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      {/* Enhanced Hero Section */}
-      <div className="relative pt-20 pb-16 bg-gradient-to-tr from-construction-blue to-construction-yellow">
-        <div className="absolute inset-0 bg-black/30"></div>
-        <div className="relative container mx-auto px-4 text-center">
+      {/* Simple Hero Section */}
+      <div className="relative pt-20 pb-16 bg-construction-blue">
+        <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 animate-on-scroll">
-            Get in <span className="text-construction-yellow drop-shadow-lg">Touch</span>
+            Get in <span className="text-construction-yellow">Touch</span>
           </h1>
-          <p className="text-xl text-white/95 max-w-3xl mx-auto animate-on-scroll">
+          <div className="w-24 h-1 bg-construction-yellow mx-auto mb-6"></div>
+          <p className="text-xl text-white/90 max-w-3xl mx-auto animate-on-scroll">
             Ready to start your next construction project? Let's discuss how we can bring your vision to life
           </p>
         </div>
-        {/* Contact-themed decorations */}
-        <div className="absolute top-16 right-20 w-6 h-6 bg-white rounded-full animate-ping"></div>
-        <div className="absolute bottom-16 left-16 w-8 h-8 border-2 border-white/40 rounded-full animate-pulse"></div>
-        <div className="absolute top-1/2 right-1/4 w-4 h-4 bg-construction-yellow rounded-full animate-bounce"></div>
       </div>
       <Contact />
       <Footer />

@@ -38,15 +38,8 @@ const serviceItems = [
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="section-padding bg-construction-lightgray relative overflow-hidden">
-      {/* Enhanced background decorations */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-40 h-40 bg-construction-blue rounded-full animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-32 h-32 bg-construction-yellow rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 right-1/4 w-24 h-24 border-4 border-construction-blue rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
+    <section id="services" className="section-padding bg-construction-lightgray">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="section-title relative">
             Our Services
@@ -61,13 +54,9 @@ const Services: React.FC = () => {
           {serviceItems.map((service, index) => (
             <Card 
               key={index} 
-              className="border-none shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-white group relative overflow-hidden"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="border-none shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 bg-white group"
             >
-              {/* Animated background gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-construction-blue/5 to-construction-yellow/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <CardHeader className="flex flex-col items-center pb-4 relative z-10">
+              <CardHeader className="flex flex-col items-center pb-4">
                 <div className="mb-4 p-4 bg-construction-blue/10 rounded-full group-hover:bg-construction-yellow/20 transition-all duration-300 group-hover:scale-110">
                   {service.icon}
                 </div>
@@ -75,37 +64,13 @@ const Services: React.FC = () => {
                   {service.title}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="text-center relative z-10">
+              <CardContent className="text-center">
                 <CardDescription className="text-construction-gray leading-relaxed group-hover:text-construction-gray/90 transition-colors duration-300">
                   {service.description}
                 </CardDescription>
               </CardContent>
-              
-              {/* Decorative corner element */}
-              <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-construction-yellow/20 to-transparent rounded-bl-full transform scale-0 group-hover:scale-100 transition-transform duration-500"></div>
             </Card>
           ))}
-        </div>
-
-        {/* Enhanced Call-to-action section */}
-        <div className="mt-20 text-center animate-on-scroll">
-          <div className="bg-gradient-to-r from-construction-blue to-construction-darkblue p-12 rounded-2xl shadow-2xl relative overflow-hidden">
-            {/* Background pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 left-0 w-32 h-32 border-4 border-construction-yellow rounded-full animate-pulse"></div>
-              <div className="absolute bottom-0 right-0 w-24 h-24 bg-construction-yellow rounded-full animate-bounce"></div>
-            </div>
-            
-            <div className="relative z-10">
-              <h3 className="text-3xl font-bold text-white mb-4">Ready to Start Your Project?</h3>
-              <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
-                Contact us today to discuss your construction needs and get a personalized quote for your project.
-              </p>
-              <button className="bg-construction-yellow text-black font-semibold px-8 py-4 rounded-lg hover:bg-construction-yellow/90 transition-all duration-300 hover:scale-105 shadow-lg">
-                Get Started Today
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </section>
