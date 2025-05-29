@@ -9,13 +9,6 @@ import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 const Contact: React.FC = () => {
   return (
     <section id="contact" className="section-padding bg-construction-lightgray relative overflow-hidden">
-      {/* Enhanced background decorations */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 right-10 w-36 h-36 bg-construction-blue rounded-full animate-pulse"></div>
-        <div className="absolute bottom-10 left-10 w-28 h-28 bg-construction-yellow rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-20 h-20 border-4 border-construction-blue rounded-full animate-spin" style={{ animationDuration: '15s' }}></div>
-      </div>
-
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="section-title relative">
@@ -154,21 +147,65 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        {/* Enhanced map or additional info section */}
+        {/* Enhanced Assam Map Section */}
         <div className="mt-16 animate-on-scroll">
-          <div className="bg-gradient-to-r from-construction-blue to-construction-darkblue p-8 rounded-2xl shadow-2xl relative overflow-hidden">
+          <div className="relative bg-gradient-to-r from-construction-blue to-construction-darkblue p-8 rounded-2xl shadow-2xl overflow-hidden">
+            {/* Assam Map Background */}
             <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 right-0 w-40 h-40 border-4 border-construction-yellow rounded-full animate-pulse"></div>
+              <svg viewBox="0 0 400 200" className="w-full h-full absolute inset-0">
+                {/* Simplified Assam state outline */}
+                <path 
+                  d="M50,80 L80,60 L120,50 L180,45 L220,55 L280,65 L320,80 L350,100 L360,130 L340,150 L300,160 L250,155 L200,150 L150,145 L100,140 L70,120 Z" 
+                  fill="none" 
+                  stroke="#F4C542" 
+                  strokeWidth="2" 
+                  strokeDasharray="5,5"
+                  className="animate-pulse"
+                />
+                {/* Guwahati marker */}
+                <circle cx="180" cy="100" r="4" fill="#F4C542" className="animate-pulse" />
+                <text x="190" y="105" fill="#F4C542" fontSize="12" className="font-semibold">Guwahati</text>
+                
+                {/* Decorative elements representing rivers */}
+                <path 
+                  d="M60,90 Q120,110 180,105 T300,120" 
+                  fill="none" 
+                  stroke="#F4C542" 
+                  strokeWidth="1" 
+                  strokeDasharray="3,3" 
+                  opacity="0.6"
+                />
+                <path 
+                  d="M80,130 Q140,135 200,130 T320,140" 
+                  fill="none" 
+                  stroke="#F4C542" 
+                  strokeWidth="1" 
+                  strokeDasharray="3,3" 
+                  opacity="0.6"
+                />
+              </svg>
             </div>
             
+            {/* Floating geometric elements */}
+            <div className="absolute top-4 right-4 w-12 h-12 border-2 border-construction-yellow opacity-20 rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
+            <div className="absolute bottom-4 left-4 w-8 h-8 border-2 border-construction-yellow opacity-20 rotate-45"></div>
+            
             <div className="relative z-10 text-center">
-              <h3 className="text-2xl font-bold text-white mb-4">Visit Our Office</h3>
-              <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-                Our office is conveniently located in the heart of Guwahati. Feel free to visit us for a face-to-face consultation about your construction project.
+              <h3 className="text-3xl font-bold text-white mb-4">
+                Visit Our Office in <span className="text-construction-yellow">Assam</span>
+              </h3>
+              <p className="text-white/90 mb-6 max-w-2xl mx-auto text-lg">
+                Located in the heart of Guwahati, we serve construction projects across Assam. 
+                Come visit us for a personalized consultation about your construction needs.
               </p>
-              <button className="bg-construction-yellow text-black font-semibold px-6 py-3 rounded-lg hover:bg-construction-yellow/90 transition-all duration-300 hover:scale-105">
-                Get Directions
-              </button>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button className="bg-construction-yellow text-construction-darkblue font-semibold px-8 py-4 rounded-lg hover:bg-construction-yellow/90 transition-all duration-300 hover:scale-105 shadow-lg">
+                  Get Directions to Guwahati
+                </button>
+                <div className="text-construction-yellow/80 text-sm">
+                  📍 Serving all of Assam & Northeast India
+                </div>
+              </div>
             </div>
           </div>
         </div>

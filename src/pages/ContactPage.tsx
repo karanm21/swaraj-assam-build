@@ -26,7 +26,7 @@ const ContactPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      {/* Hero Section with Abstract Background */}
+      {/* Hero Section - Removed blue background animation */}
       <div className="relative pt-20 pb-16 bg-construction-blue overflow-hidden">
         <AbstractBackground variant="blue" />
         <div className="container mx-auto px-4 text-center relative z-10">
