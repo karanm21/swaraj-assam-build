@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Gallery from '@/components/Gallery';
 import Footer from '@/components/Footer';
+import AbstractBackground from '@/components/AbstractBackground';
 
 const GalleryPage: React.FC = () => {
   useEffect(() => {
@@ -25,9 +26,10 @@ const GalleryPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      {/* Simple Hero Section */}
-      <div className="relative pt-20 pb-16 bg-construction-blue">
-        <div className="container mx-auto px-4 text-center">
+      {/* Hero Section with Abstract Background */}
+      <div className="relative pt-20 pb-16 bg-construction-blue overflow-hidden">
+        <AbstractBackground variant="blue" />
+        <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 animate-on-scroll">
             Project <span className="text-construction-yellow">Gallery</span>
           </h1>
@@ -37,7 +39,10 @@ const GalleryPage: React.FC = () => {
           </p>
         </div>
       </div>
-      <Gallery />
+      <div className="relative">
+        <AbstractBackground variant="light" />
+        <Gallery />
+      </div>
       <Footer />
     </div>
   );

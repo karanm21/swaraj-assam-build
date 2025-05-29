@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import AbstractBackground from '@/components/AbstractBackground';
 
 const ContactPage: React.FC = () => {
   useEffect(() => {
@@ -25,9 +26,10 @@ const ContactPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      {/* Simple Hero Section */}
-      <div className="relative pt-20 pb-16 bg-construction-blue">
-        <div className="container mx-auto px-4 text-center">
+      {/* Hero Section with Abstract Background */}
+      <div className="relative pt-20 pb-16 bg-construction-blue overflow-hidden">
+        <AbstractBackground variant="blue" />
+        <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 animate-on-scroll">
             Get in <span className="text-construction-yellow">Touch</span>
           </h1>
@@ -37,7 +39,10 @@ const ContactPage: React.FC = () => {
           </p>
         </div>
       </div>
-      <Contact />
+      <div className="relative">
+        <AbstractBackground variant="light" />
+        <Contact />
+      </div>
       <Footer />
     </div>
   );

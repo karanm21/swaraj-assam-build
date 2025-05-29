@@ -1,7 +1,9 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Careers from '@/components/Careers';
 import Footer from '@/components/Footer';
+import AbstractBackground from '@/components/AbstractBackground';
 
 const CareersPage: React.FC = () => {
   useEffect(() => {
@@ -24,7 +26,8 @@ const CareersPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <div className="pt-12">
+      <div className="pt-12 relative">
+        <AbstractBackground variant="light" />
         <Careers />
       </div>
       <Footer />
@@ -33,4 +36,3 @@ const CareersPage: React.FC = () => {
 };
 
 export default CareersPage;
-

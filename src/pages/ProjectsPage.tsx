@@ -1,10 +1,10 @@
-
 import React, { useState, useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { MapPin, Calendar } from 'lucide-react';
 import ProjectDetailsDialog from '@/components/ProjectDetailsDialog';
+import AbstractBackground from '@/components/AbstractBackground';
 
 const projectItems = [
   {
@@ -145,8 +145,9 @@ const ProjectsPage: React.FC = () => {
       <div className="min-h-screen bg-white">
         <Navbar />
         <div className="pt-20">
-          <section id="projects" className="section-padding bg-white">
-            <div className="container mx-auto px-4">
+          <section id="projects" className="section-padding bg-white relative">
+            <AbstractBackground variant="light" />
+            <div className="container mx-auto px-4 relative z-10">
               <div className="text-center mb-12">
                 <h2 className="section-title">Our Work</h2>
                 <p className="text-lg text-construction-gray max-w-3xl mx-auto">
@@ -156,7 +157,7 @@ const ProjectsPage: React.FC = () => {
             </div>
             
             {/* Projects Grid - Full width with vertical spacing */}
-            <div className="w-full">
+            <div className="w-full relative z-10">
               <div className="space-y-8 animate-on-scroll">
                 {displayedProjects.map((project, index) => (
                   <div key={index} className="relative overflow-hidden h-96 group w-full">

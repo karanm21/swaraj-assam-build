@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import About from '@/components/About';
 import Footer from '@/components/Footer';
+import AbstractBackground from '@/components/AbstractBackground';
 
 const AboutPage: React.FC = () => {
   useEffect(() => {
@@ -25,9 +26,10 @@ const AboutPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      {/* Simple Hero Section */}
-      <div className="relative pt-20 pb-16 bg-construction-blue">
-        <div className="container mx-auto px-4 text-center">
+      {/* Hero Section with Abstract Background */}
+      <div className="relative pt-20 pb-16 bg-construction-blue overflow-hidden">
+        <AbstractBackground variant="blue" />
+        <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 animate-on-scroll">
             About <span className="text-construction-yellow">Swaraj Infra</span>
           </h1>
@@ -37,7 +39,8 @@ const AboutPage: React.FC = () => {
           </p>
         </div>
       </div>
-      <div className="bg-construction-lightgray">
+      <div className="bg-construction-lightgray relative">
+        <AbstractBackground variant="light" />
         <About />
       </div>
       <Footer />
