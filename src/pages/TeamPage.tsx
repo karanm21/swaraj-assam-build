@@ -26,20 +26,7 @@ const TeamPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      {/* Hero Section with Abstract Background */}
-      <div className="relative pt-20 pb-16 bg-construction-blue overflow-hidden">
-        <AbstractBackground variant="blue" />
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 animate-on-scroll">
-            Our <span className="text-construction-yellow">Team</span>
-          </h1>
-          <div className="w-24 h-1 bg-construction-yellow mx-auto mb-6"></div>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto animate-on-scroll">
-            Meet the dedicated professionals who bring expertise, passion, and innovation to every project
-          </p>
-        </div>
-      </div>
-      <div className="bg-construction-lightgray relative">
+      <div className="pt-20 bg-construction-lightgray relative">
         <AbstractBackground variant="light" />
         <Team />
       </div>

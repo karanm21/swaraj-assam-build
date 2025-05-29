@@ -26,7 +26,7 @@ const CareersPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <div className="pt-12 relative">
+      <div className="pt-20 relative">
         <AbstractBackground variant="light" />
         <Careers />
       </div>

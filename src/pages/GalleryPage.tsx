@@ -26,20 +26,7 @@ const GalleryPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      {/* Hero Section with Abstract Background */}
-      <div className="relative pt-20 pb-16 bg-construction-blue overflow-hidden">
-        <AbstractBackground variant="blue" />
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 animate-on-scroll">
-            Project <span className="text-construction-yellow">Gallery</span>
-          </h1>
-          <div className="w-24 h-1 bg-construction-yellow mx-auto mb-6"></div>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto animate-on-scroll">
-            Explore our portfolio of exceptional construction projects and witness the quality of our craftsmanship
-          </p>
-        </div>
-      </div>
-      <div className="relative">
+      <div className="pt-20 relative">
         <AbstractBackground variant="light" />
         <Gallery />
       </div>

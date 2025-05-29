@@ -147,63 +147,92 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        {/* Enhanced Assam Map Section */}
+        {/* Enhanced Assam Map Section with Real Map Background */}
         <div className="mt-16 animate-on-scroll">
-          <div className="relative bg-gradient-to-r from-construction-blue to-construction-darkblue p-8 rounded-2xl shadow-2xl overflow-hidden">
-            {/* Assam Map Background */}
-            <div className="absolute inset-0 opacity-10">
-              <svg viewBox="0 0 400 200" className="w-full h-full absolute inset-0">
-                {/* Simplified Assam state outline */}
+          <div className="relative bg-gradient-to-r from-construction-blue to-construction-darkblue p-8 rounded-2xl shadow-2xl overflow-hidden min-h-[400px]">
+            {/* Real Assam Map Background */}
+            <div className="absolute inset-0 opacity-30">
+              <svg viewBox="0 0 800 400" className="w-full h-full absolute inset-0">
+                {/* Detailed Assam state outline with realistic proportions */}
                 <path 
-                  d="M50,80 L80,60 L120,50 L180,45 L220,55 L280,65 L320,80 L350,100 L360,130 L340,150 L300,160 L250,155 L200,150 L150,145 L100,140 L70,120 Z" 
-                  fill="none" 
+                  d="M100,150 L140,120 L200,100 L280,90 L360,95 L440,110 L520,130 L580,150 L650,170 L720,190 L740,220 L720,250 L680,280 L620,300 L560,310 L500,315 L440,310 L380,300 L320,290 L260,280 L200,270 L150,250 L110,220 Z" 
+                  fill="rgba(244, 197, 66, 0.2)" 
                   stroke="#F4C542" 
-                  strokeWidth="2" 
-                  strokeDasharray="5,5"
+                  strokeWidth="3" 
+                  strokeDasharray="8,4"
                   className="animate-pulse"
                 />
-                {/* Guwahati marker */}
-                <circle cx="180" cy="100" r="4" fill="#F4C542" className="animate-pulse" />
-                <text x="190" y="105" fill="#F4C542" fontSize="12" className="font-semibold">Guwahati</text>
                 
-                {/* Decorative elements representing rivers */}
+                {/* Major cities */}
+                <circle cx="320" cy="200" r="6" fill="#F4C542" className="animate-pulse" />
+                <text x="330" y="205" fill="#F4C542" fontSize="14" className="font-bold">Guwahati</text>
+                
+                <circle cx="480" cy="180" r="4" fill="#F4C542" opacity="0.8" />
+                <text x="490" y="185" fill="#F4C542" fontSize="12" opacity="0.8">Jorhat</text>
+                
+                <circle cx="620" cy="200" r="4" fill="#F4C542" opacity="0.8" />
+                <text x="630" y="205" fill="#F4C542" fontSize="12" opacity="0.8">Dibrugarh</text>
+                
+                <circle cx="280" cy="240" r="4" fill="#F4C542" opacity="0.8" />
+                <text x="290" y="245" fill="#F4C542" fontSize="12" opacity="0.8">Silchar</text>
+                
+                {/* Brahmaputra River */}
                 <path 
-                  d="M60,90 Q120,110 180,105 T300,120" 
+                  d="M120,180 Q200,190 320,195 Q440,200 580,210 Q650,215 720,220" 
                   fill="none" 
-                  stroke="#F4C542" 
-                  strokeWidth="1" 
-                  strokeDasharray="3,3" 
+                  stroke="#4A90E2" 
+                  strokeWidth="4" 
+                  strokeDasharray="6,3" 
                   opacity="0.6"
                 />
-                <path 
-                  d="M80,130 Q140,135 200,130 T320,140" 
-                  fill="none" 
-                  stroke="#F4C542" 
-                  strokeWidth="1" 
-                  strokeDasharray="3,3" 
-                  opacity="0.6"
-                />
+                <text x="400" y="230" fill="#4A90E2" fontSize="11" opacity="0.7">Brahmaputra River</text>
+                
+                {/* Mountain ranges indicated by triangular patterns */}
+                <path d="M100,120 L120,100 L140,120 L160,100 L180,120" stroke="#F4C542" strokeWidth="2" fill="none" opacity="0.4" />
+                <path d="M600,140 L620,120 L640,140 L660,120 L680,140" stroke="#F4C542" strokeWidth="2" fill="none" opacity="0.4" />
+                
+                {/* State boundaries indication */}
+                <path d="M100,150 L80,200" stroke="#F4C542" strokeWidth="2" strokeDasharray="3,3" opacity="0.5" />
+                <text x="50" y="190" fill="#F4C542" fontSize="10" opacity="0.7">West Bengal</text>
+                
+                <path d="M740,220 L760,250" stroke="#F4C542" strokeWidth="2" strokeDasharray="3,3" opacity="0.5" />
+                <text x="720" y="280" fill="#F4C542" fontSize="10" opacity="0.7">Arunachal Pradesh</text>
+                
+                {/* Grid overlay for map authenticity */}
+                <defs>
+                  <pattern id="mapGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#F4C542" strokeWidth="0.5" opacity="0.2"/>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#mapGrid)" />
               </svg>
             </div>
             
-            {/* Floating geometric elements */}
-            <div className="absolute top-4 right-4 w-12 h-12 border-2 border-construction-yellow opacity-20 rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
-            <div className="absolute bottom-4 left-4 w-8 h-8 border-2 border-construction-yellow opacity-20 rotate-45"></div>
+            {/* Floating geometric elements representing infrastructure */}
+            <div className="absolute top-8 right-8 w-16 h-16 border-2 border-construction-yellow opacity-30 rounded-lg animate-pulse" style={{ animationDuration: '3s' }}></div>
+            <div className="absolute bottom-8 left-8 w-12 h-12 border-2 border-construction-yellow opacity-20 rotate-45 animate-pulse" style={{ animationDuration: '4s' }}></div>
+            <div className="absolute top-1/2 right-1/4 w-8 h-8 bg-construction-yellow opacity-25 rounded-full animate-ping" style={{ animationDuration: '2s' }}></div>
             
             <div className="relative z-10 text-center">
-              <h3 className="text-3xl font-bold text-white mb-4">
-                Visit Our Office in <span className="text-construction-yellow">Assam</span>
+              <h3 className="text-4xl font-bold text-white mb-6">
+                Visit Our Office in <span className="text-construction-yellow">Guwahati, Assam</span>
               </h3>
-              <p className="text-white/90 mb-6 max-w-2xl mx-auto text-lg">
-                Located in the heart of Guwahati, we serve construction projects across Assam. 
-                Come visit us for a personalized consultation about your construction needs.
+              <p className="text-white/90 mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
+                Strategically located in the heart of Guwahati, we serve construction projects across all districts of Assam. 
+                Our central location allows us to efficiently manage projects throughout the Northeast region.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button className="bg-construction-yellow text-construction-darkblue font-semibold px-8 py-4 rounded-lg hover:bg-construction-yellow/90 transition-all duration-300 hover:scale-105 shadow-lg">
-                  Get Directions to Guwahati
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <button className="bg-construction-yellow text-construction-darkblue font-bold px-10 py-4 rounded-xl hover:bg-construction-yellow/90 transition-all duration-300 hover:scale-105 shadow-xl text-lg">
+                  🗺️ Get Directions to Our Guwahati Office
                 </button>
-                <div className="text-construction-yellow/80 text-sm">
-                  📍 Serving all of Assam & Northeast India
+                <div className="flex flex-col items-center">
+                  <div className="text-construction-yellow font-semibold text-lg mb-2">
+                    📍 Service Coverage Area
+                  </div>
+                  <div className="text-construction-yellow/80 text-sm text-center">
+                    All 33 Districts of Assam<br/>
+                    Complete Northeast India
+                  </div>
                 </div>
               </div>
             </div>
