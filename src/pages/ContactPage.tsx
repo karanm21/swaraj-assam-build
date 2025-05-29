@@ -28,7 +28,9 @@ const ContactPage: React.FC = () => {
       <Navbar />
       <div className="pt-20 relative">
         <AbstractBackground variant="light" />
-        <Contact />
+        <div className="relative z-10 bg-white">
+          <Contact />
+        </div>
       </div>
       <Footer />
     </div>

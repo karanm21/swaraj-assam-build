@@ -1,3 +1,4 @@
+
 import React, { useState, useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -144,75 +145,77 @@ const ProjectsPage: React.FC = () => {
     <>
       <div className="min-h-screen bg-white">
         <Navbar />
-        <div className="pt-20">
-          <section id="projects" className="section-padding bg-white relative">
-            <AbstractBackground variant="light" />
-            <div className="container mx-auto px-4 relative z-10">
-              <div className="text-center mb-12">
-                <h2 className="section-title">Our Work</h2>
-                <p className="text-lg text-construction-gray max-w-3xl mx-auto">
-                  Explore our portfolio of successful construction projects across Guwahati and Assam.
-                </p>
+        <div className="pt-20 relative">
+          <AbstractBackground variant="light" />
+          <div className="relative z-10 bg-white">
+            <section id="projects" className="section-padding">
+              <div className="container mx-auto px-4">
+                <div className="text-center mb-12">
+                  <h2 className="section-title">Our Work</h2>
+                  <p className="text-lg text-construction-gray max-w-3xl mx-auto">
+                    Explore our portfolio of successful construction projects across Guwahati and Assam.
+                  </p>
+                </div>
               </div>
-            </div>
-            
-            {/* Projects Grid - Full width with vertical spacing */}
-            <div className="w-full relative z-10">
-              <div className="space-y-8 animate-on-scroll">
-                {displayedProjects.map((project, index) => (
-                  <div key={index} className="relative overflow-hidden h-96 group w-full">
-                    {/* Background Image */}
-                    <div 
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                      style={{ backgroundImage: `url(${project.image})` }}
-                    />
-                    <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-                    
-                    {/* Content Overlay */}
-                    <div className="relative z-10 h-full flex items-center">
-                      <div className="container mx-auto px-8">
-                        <div className="max-w-2xl text-white">
-                          <span className="inline-block px-4 py-2 bg-construction-yellow text-black text-sm font-medium rounded mb-4">
-                            {project.category}
-                          </span>
-                          <h3 className="text-4xl font-bold mb-4">{project.title}</h3>
-                          <p className="text-lg mb-6 leading-relaxed opacity-90">{project.description}</p>
-                          
-                          <div className="flex flex-col space-y-3 mb-6">
-                            <div className="flex items-center gap-2">
-                              <MapPin className="h-5 w-5 text-construction-yellow" /> 
-                              <span className="font-medium">{project.location}</span>
+              
+              {/* Projects Grid - Full width with vertical spacing */}
+              <div className="w-full">
+                <div className="space-y-8 animate-on-scroll">
+                  {displayedProjects.map((project, index) => (
+                    <div key={index} className="relative overflow-hidden h-96 group w-full">
+                      {/* Background Image */}
+                      <div 
+                        className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                        style={{ backgroundImage: `url(${project.image})` }}
+                      />
+                      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+                      
+                      {/* Content Overlay */}
+                      <div className="relative z-10 h-full flex items-center">
+                        <div className="container mx-auto px-8">
+                          <div className="max-w-2xl text-white">
+                            <span className="inline-block px-4 py-2 bg-construction-yellow text-black text-sm font-medium rounded mb-4">
+                              {project.category}
+                            </span>
+                            <h3 className="text-4xl font-bold mb-4">{project.title}</h3>
+                            <p className="text-lg mb-6 leading-relaxed opacity-90">{project.description}</p>
+                            
+                            <div className="flex flex-col space-y-3 mb-6">
+                              <div className="flex items-center gap-2">
+                                <MapPin className="h-5 w-5 text-construction-yellow" /> 
+                                <span className="font-medium">{project.location}</span>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <Calendar className="h-5 w-5 text-construction-yellow" /> 
+                                <span className="font-medium">Completed {project.year}</span>
+                              </div>
                             </div>
-                            <div className="flex items-center gap-2">
-                              <Calendar className="h-5 w-5 text-construction-yellow" /> 
-                              <span className="font-medium">Completed {project.year}</span>
-                            </div>
+                            
+                            <Button 
+                              className="bg-construction-blue text-white hover:bg-construction-blue/90"
+                              onClick={() => handleProjectDetails(project)}
+                            >
+                              View Project Details
+                            </Button>
                           </div>
-                          
-                          <Button 
-                            className="bg-construction-blue text-white hover:bg-construction-blue/90"
-                            onClick={() => handleProjectDetails(project)}
-                          >
-                            View Project Details
-                          </Button>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+                
+                {/* Show More/Less Button */}
+                <div ref={buttonRef} className="flex justify-center mt-12">
+                  <Button 
+                    onClick={handleShowAll}
+                    className="bg-construction-yellow text-black hover:bg-construction-yellow/90 px-8 py-3"
+                  >
+                    {showAll ? 'Show Less Projects' : 'Show More Projects'}
+                  </Button>
+                </div>
               </div>
-              
-              {/* Show More/Less Button */}
-              <div ref={buttonRef} className="flex justify-center mt-12">
-                <Button 
-                  onClick={handleShowAll}
-                  className="bg-construction-yellow text-black hover:bg-construction-yellow/90 px-8 py-3"
-                >
-                  {showAll ? 'Show Less Projects' : 'Show More Projects'}
-                </Button>
-              </div>
-            </div>
-          </section>
+            </section>
+          </div>
         </div>
         <Footer />
       </div>

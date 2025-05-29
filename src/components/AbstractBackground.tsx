@@ -8,8 +8,8 @@ interface AbstractBackgroundProps {
 const AbstractBackground: React.FC<AbstractBackgroundProps> = ({ variant = 'blue' }) => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* Enhanced Blueprint Grid Lines - More Visible */}
-      <div className="absolute inset-0 opacity-30">
+      {/* Enhanced Blueprint Grid Lines */}
+      <div className="absolute inset-0 opacity-20">
         <svg width="100%" height="100%" className="absolute inset-0">
           <defs>
             <pattern id="blueprint-grid" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -26,8 +26,8 @@ const AbstractBackground: React.FC<AbstractBackgroundProps> = ({ variant = 'blue
         </svg>
       </div>
 
-      {/* Enhanced Diagonal Blueprint Lines - More Visible */}
-      <div className="absolute inset-0 opacity-20">
+      {/* Enhanced Diagonal Blueprint Lines */}
+      <div className="absolute inset-0 opacity-15">
         <svg width="100%" height="100%" className="absolute inset-0">
           <path 
             d="M-50,100 L150,0 M100,100 L300,0 M250,100 L450,0 M400,100 L600,0 M550,100 L750,0 M700,100 L900,0 M-100,200 L200,0 M150,200 L450,0 M350,200 L650,0" 
@@ -38,25 +38,113 @@ const AbstractBackground: React.FC<AbstractBackgroundProps> = ({ variant = 'blue
         </svg>
       </div>
 
-      {/* Enhanced Floating Particles - More Visible */}
-      <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className={`absolute w-2 h-2 rounded-full ${
-              variant === 'blue' ? 'bg-white' : 'bg-construction-blue'
-            } opacity-40 animate-pulse`}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 4}s`,
-              animationDuration: `${3 + Math.random() * 3}s`
-            }}
-          />
-        ))}
+      {/* Animated Connecting Dots Pattern */}
+      <div className="absolute inset-0 opacity-30">
+        <svg width="100%" height="100%" className="absolute inset-0">
+          <defs>
+            <animate id="dot-animation" 
+              attributeName="opacity" 
+              values="0.3;0.8;0.3" 
+              dur="3s" 
+              repeatCount="indefinite"
+            />
+          </defs>
+          
+          {/* Dot Grid */}
+          {Array.from({ length: 8 }, (_, row) =>
+            Array.from({ length: 12 }, (_, col) => {
+              const x = (col + 1) * 100;
+              const y = (row + 1) * 80;
+              return (
+                <g key={`${row}-${col}`}>
+                  <circle
+                    cx={x}
+                    cy={y}
+                    r="2"
+                    fill={variant === 'blue' ? "#ffffff" : "#164B87"}
+                    opacity="0.4"
+                  >
+                    <animate
+                      attributeName="opacity"
+                      values="0.2;0.7;0.2"
+                      dur={`${2 + Math.random() * 2}s`}
+                      repeatCount="indefinite"
+                      begin={`${Math.random() * 2}s`}
+                    />
+                  </circle>
+                  
+                  {/* Connecting Lines */}
+                  {col < 11 && (
+                    <line
+                      x1={x}
+                      y1={y}
+                      x2={x + 100}
+                      y2={y}
+                      stroke={variant === 'blue' ? "#ffffff" : "#164B87"}
+                      strokeWidth="1"
+                      opacity="0.2"
+                      strokeDasharray="2,4"
+                    >
+                      <animate
+                        attributeName="opacity"
+                        values="0.1;0.4;0.1"
+                        dur="4s"
+                        repeatCount="indefinite"
+                        begin={`${Math.random() * 3}s`}
+                      />
+                    </line>
+                  )}
+                  
+                  {row < 7 && (
+                    <line
+                      x1={x}
+                      y1={y}
+                      x2={x}
+                      y2={y + 80}
+                      stroke={variant === 'blue' ? "#ffffff" : "#164B87"}
+                      strokeWidth="1"
+                      opacity="0.2"
+                      strokeDasharray="2,4"
+                    >
+                      <animate
+                        attributeName="opacity"
+                        values="0.1;0.4;0.1"
+                        dur="4s"
+                        repeatCount="indefinite"
+                        begin={`${Math.random() * 3}s`}
+                      />
+                    </line>
+                  )}
+                  
+                  {/* Diagonal Connections */}
+                  {col < 11 && row < 7 && Math.random() > 0.7 && (
+                    <line
+                      x1={x}
+                      y1={y}
+                      x2={x + 100}
+                      y2={y + 80}
+                      stroke={variant === 'blue' ? "#ffffff" : "#164B87"}
+                      strokeWidth="1"
+                      opacity="0.15"
+                      strokeDasharray="1,3"
+                    >
+                      <animate
+                        attributeName="opacity"
+                        values="0.05;0.3;0.05"
+                        dur="5s"
+                        repeatCount="indefinite"
+                        begin={`${Math.random() * 4}s`}
+                      />
+                    </line>
+                  )}
+                </g>
+              );
+            })
+          )}
+        </svg>
       </div>
 
-      {/* Enhanced Construction Frame Elements - More Visible */}
+      {/* Enhanced Construction Frame Elements */}
       <div className="absolute top-10 left-10 w-24 h-24 opacity-25">
         <svg width="100%" height="100%">
           <rect 
@@ -96,7 +184,6 @@ const AbstractBackground: React.FC<AbstractBackgroundProps> = ({ variant = 'blue
         </svg>
       </div>
 
-      {/* Additional Blueprint Elements */}
       <div className="absolute top-1/3 right-1/4 w-12 h-12 opacity-20">
         <svg width="100%" height="100%">
           <path 

@@ -26,9 +26,11 @@ const TeamPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <div className="pt-20 bg-construction-lightgray relative">
+      <div className="pt-20 relative">
         <AbstractBackground variant="light" />
-        <Team />
+        <div className="relative z-10 bg-white">
+          <Team />
+        </div>
       </div>
       <Footer />
     </div>

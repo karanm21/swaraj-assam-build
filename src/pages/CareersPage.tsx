@@ -18,7 +18,7 @@ const CareersPage: React.FC = () => {
       });
     };
 
-    animateOnScroll(); // Initial check
+    animateOnScroll();
     window.addEventListener('scroll', animateOnScroll);
     return () => window.removeEventListener('scroll', animateOnScroll);
   }, []);
@@ -28,7 +28,9 @@ const CareersPage: React.FC = () => {
       <Navbar />
       <div className="pt-20 relative">
         <AbstractBackground variant="light" />
-        <Careers />
+        <div className="relative z-10 bg-white">
+          <Careers />
+        </div>
       </div>
       <Footer />
     </div>

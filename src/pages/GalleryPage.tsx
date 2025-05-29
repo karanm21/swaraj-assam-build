@@ -28,7 +28,9 @@ const GalleryPage: React.FC = () => {
       <Navbar />
       <div className="pt-20 relative">
         <AbstractBackground variant="light" />
-        <Gallery />
+        <div className="relative z-10 bg-white">
+          <Gallery />
+        </div>
       </div>
       <Footer />
     </div>
