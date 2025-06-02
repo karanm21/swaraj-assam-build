@@ -148,7 +148,7 @@ const Stats: React.FC = () => {
                 <div>
                   <h4 className="font-bold text-construction-blue mb-2 text-lg group-hover:text-construction-yellow transition-colors duration-300">Quality Assurance</h4>
                   <p className="text-construction-gray">We maintain the highest standards in every project we undertake with rigorous quality control.</p>
-                </div
+                </div>
               </div>
               <div className="flex items-start space-x-4 group">
                 <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-construction-yellow to-construction-yellow/80 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -177,4 +177,3 @@ const Stats: React.FC = () => {
 };
 
 export default Stats;
-
