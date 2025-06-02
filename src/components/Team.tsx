@@ -68,7 +68,7 @@ const teamMembers = [
     instagram: "https://instagram.com/rahulmehta"
   },
   {
-    name: "Kavya Singh",
+    name: "abc",
     position: "Environmental Engineer",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
     bio: "Kavya specializes in sustainable construction practices and environmental compliance for all our projects.",
@@ -83,7 +83,9 @@ const Team: React.FC = () => {
     <section id="team" className="section-padding bg-construction-lightgray">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="section-title">Our Team</h2>
+          <h2 className="section-title relative">OUR TEAM
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-construction-yellow rounded-full"></div>
+          </h2>
           <p className="text-lg text-construction-gray max-w-3xl mx-auto">
             Meet the dedicated professionals behind Swaraj Infra who bring expertise and passion to every project.
           </p>
