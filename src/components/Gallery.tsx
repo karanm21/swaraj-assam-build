@@ -17,9 +17,9 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 const galleryImages = [
   {
     images: [
-      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
-      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80",
-      "https://images.unsplash.com/photo-1590479773265-7464e5d48118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80"
+      "/images/site1.avif",
+      "/images/site1.avif",
+      "/images/site1.avif"
     ],
     alt: "Industrial Construction Site",
     category: "Industrial"
@@ -101,29 +101,32 @@ const galleryImages = [
 const Gallery: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  
-  const filteredImages = selectedCategory 
+  const [activeImageGroup, setActiveImageGroup] = useState<number | null>(null);
+
+  const filteredImages = selectedCategory
     ? galleryImages.filter(img => img.category === selectedCategory)
     : galleryImages;
-  
+
   const categories = Array.from(new Set(galleryImages.map(img => img.category)));
-  
+
   return (
     <section id="gallery" className="section-padding bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="section-title">Project Gallery</h2>
+          <h2 className="section-title relative">PROJECT GALLERY
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-construction-yellow rounded-full"></div>
+          </h2>
           <p className="text-lg text-construction-gray max-w-3xl mx-auto">
             Explore our portfolio of completed projects across various sectors.
           </p>
         </div>
-        
+
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-2 mb-8">
-          <button 
+          <button
             className={`px-6 py-3 rounded-md transition-colors font-medium ${
-              selectedCategory === null 
-                ? 'bg-construction-blue text-white' 
+              selectedCategory === null
+                ? 'bg-construction-blue text-white'
                 : 'bg-gray-100 hover:bg-gray-200'
             }`}
             onClick={() => setSelectedCategory(null)}
@@ -131,11 +134,11 @@ const Gallery: React.FC = () => {
             All Projects
           </button>
           {categories.map((category, index) => (
-            <button 
+            <button
               key={index}
               className={`px-6 py-3 rounded-md transition-colors font-medium ${
-                selectedCategory === category 
-                  ? 'bg-construction-blue text-white' 
+                selectedCategory === category
+                  ? 'bg-construction-blue text-white'
                   : 'bg-gray-100 hover:bg-gray-200'
               }`}
               onClick={() => setSelectedCategory(category)}
@@ -144,13 +147,16 @@ const Gallery: React.FC = () => {
             </button>
           ))}
         </div>
-        
+
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 animate-on-scroll">
           {filteredImages.map((image, index) => (
-            <Dialog key={index} open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+            <Dialog key={index} open={isDialogOpen && activeImageGroup === index} onOpenChange={(open) => {
+              setIsDialogOpen(open);
+              if (open) setActiveImageGroup(index);
+            }}>
               <DialogTrigger asChild>
-                <div 
+                <div
                   className="relative overflow-hidden cursor-pointer h-80 group bg-cover bg-center"
                   style={{ backgroundImage: `url(${image.images[0]})` }}
                 >
@@ -164,41 +170,48 @@ const Gallery: React.FC = () => {
                   </div>
                 </div>
               </DialogTrigger>
-              <DialogContent className="max-w-5xl p-0 bg-black border-none">
-                {/* Custom close button */}
-                <button
-                  onClick={() => setIsDialogOpen(false)}
-                  className="absolute top-4 right-4 z-50 bg-white rounded-full p-2 hover:bg-gray-100 transition-colors"
-                >
-                  <X className="h-5 w-5 text-black" />
-                </button>
-                
-                <div className="relative">
-                  <Carousel className="w-full">
-                    <CarouselContent>
-                      {image.images.map((img, imgIndex) => (
-                        <CarouselItem key={imgIndex}>
-                          <div className="aspect-video">
-                            <img 
-                              src={img} 
-                              alt={`${image.alt} - Image ${imgIndex + 1}`} 
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    <CarouselPrevious className="left-4 bg-white/90 hover:bg-white border-none">
-                      <ChevronLeft className="h-6 w-6" />
-                    </CarouselPrevious>
-                    <CarouselNext className="right-4 bg-white/90 hover:bg-white border-none">
-                      <ChevronRight className="h-6 w-6" />
-                    </CarouselNext>
-                  </Carousel>
-                  
-                  <div className="p-6 bg-white">
-                    <h3 className="font-semibold text-xl mb-2">{image.alt}</h3>
-                    <p className="text-construction-gray">{image.category} Project</p>
+
+              <DialogContent className="p-0 max-w-5xl w-full bg-transparent shadow-none border-0">
+                <div className="relative bg-black rounded-lg overflow-hidden">
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setIsDialogOpen(false)}
+                    className="absolute top-4 right-4 z-50 bg-white rounded-full p-2 hover:bg-gray-100 transition-colors"
+                  >
+                    <X className="h-5 w-5 text-black" />
+                  </button>
+
+                  {/* Carousel */}
+                  <div className="relative">
+                    <Carousel className="w-full">
+                      <CarouselContent>
+                        {image.images.map((img, i) => (
+                          <CarouselItem key={i}>
+                            <div className="aspect-video">
+                              <img
+                                src={img}
+                                alt={`${image.alt} - Image ${i + 1}`}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                      <CarouselPrevious className="left-4 bg-white/90 hover:bg-white border-none">
+                        <ChevronLeft className="h-6 w-6" />
+                      </CarouselPrevious>
+                      <CarouselNext className="right-4 bg-white/90 hover:bg-white border-none">
+                        <ChevronRight className="h-6 w-6" />
+                      </CarouselNext>
+                    </Carousel>
+                    <div className="p-6 bg-white">
+                      <h3 className="font-semibold text-xl mb-2">
+                        {image.alt}
+                      </h3>
+                      <p className="text-construction-gray">
+                        {image.category} Project
+                      </p>
+                    </div>
                   </div>
                 </div>
               </DialogContent>
