@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Gallery from '@/components/Gallery';
@@ -18,7 +17,7 @@ const GalleryPage: React.FC = () => {
       });
     };
 
-    animateOnScroll();
+    animateOnScroll(); // Initial check
     window.addEventListener('scroll', animateOnScroll);
     return () => window.removeEventListener('scroll', animateOnScroll);
   }, []);
@@ -26,11 +25,9 @@ const GalleryPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <div className="pt-20 relative">
+      <div className="pt-12 relative">
         <AbstractBackground variant="light" />
-        <div className="relative z-10 bg-white">
-          <Gallery />
-        </div>
+        <Gallery />
       </div>
       <Footer />
     </div>
@@ -38,3 +35,4 @@ const GalleryPage: React.FC = () => {
 };
 
 export default GalleryPage;
+
