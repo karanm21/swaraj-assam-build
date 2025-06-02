@@ -18,7 +18,9 @@ const About: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <h2 className="section-title">About Swaraj Infra</h2>
+          <h2 className="section-title relative">ABOUT SWARAJ INFRA
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-construction-yellow rounded-full"></div>
+          </h2>
           <p className="text-xl text-construction-gray max-w-4xl mx-auto leading-relaxed">
             Building the future of Assam with over a decade of excellence in construction and infrastructure development
           </p>
