@@ -18,22 +18,20 @@ const ContactPage: React.FC = () => {
       });
     };
 
-    animateOnScroll();
+    animateOnScroll(); // Initial check
     window.addEventListener('scroll', animateOnScroll);
     return () => window.removeEventListener('scroll', animateOnScroll);
   }, []);
-
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <div className="pt-20 relative">
+      <div className="pt-12 relative">
         <AbstractBackground variant="light" />
-        <div className="relative z-10 bg-white">
-          <Contact />
-        </div>
+        <Contact />
       </div>
       <Footer />
     </div>
+    
   );
 };
 
