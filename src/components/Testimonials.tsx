@@ -42,7 +42,9 @@ const Testimonials: React.FC = () => {
     <section id="testimonials" className="section-padding bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="section-title">What Our Clients Say</h2>
+          <h2 className="section-title relative">WHAT OUR CLIENTS SAY
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-construction-yellow rounded-full"></div>
+          </h2>
           <p className="text-lg text-construction-gray max-w-3xl mx-auto">
             Hear from those who have experienced our dedication to excellence and quality construction.
           </p>
