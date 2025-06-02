@@ -12,7 +12,8 @@ import Footer from '@/components/Footer';
 import Team from '@/components/Team';
 import Gallery from '@/components/Gallery';
 import Careers from '@/components/Careers';
-import AbstractBackground from '@/components/AbstractBackground';
+import AssamMapSection from '@/components/Map';
+
 
 const Index: React.FC = () => {
   // Add scroll animation
@@ -43,29 +44,25 @@ const Index: React.FC = () => {
     <div className="min-h-screen">
       <Navbar />
       <Hero />
-      <div className="bg-white relative">
-        <AbstractBackground variant="light" />
+      <div className="bg-white">
         <About />
-        <div className="bg-construction-lightgray relative">
-          <AbstractBackground variant="light" />
+        <div className="bg-construction-lightgray">
           <Services />
         </div>
         <Projects />
-        <div className="bg-construction-lightgray relative">
-          <AbstractBackground variant="light" />
+        <div className="bg-construction-lightgray">
           <Team />
         </div>
         <Gallery />
-        <div className="bg-construction-lightgray relative">
-          <AbstractBackground variant="light" />
+        <div className="bg-construction-lightgray">
           <Careers />
         </div>
         <Stats />
-        <div className="bg-construction-lightgray relative">
-          <AbstractBackground variant="light" />
+        <div className="bg-construction-lightgray">
           <Testimonials />
         </div>
         <Contact />
+        <AssamMapSection />
       </div>
       <Footer />
     </div>
