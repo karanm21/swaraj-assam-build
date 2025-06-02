@@ -96,7 +96,9 @@ const Stats: React.FC = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="section-title animate-fade-in">Our Achievements in Numbers</h2>
+          <h2 className="section-title relative animate-fade-in">OUR ACHIEVEMENTS
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-construction-yellow rounded-full"></div>
+          </h2>
           <p className="text-lg text-construction-gray max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
             Over the years, we have built a legacy of excellence and trust in the construction industry across Assam.
           </p>
@@ -146,7 +148,7 @@ const Stats: React.FC = () => {
                 <div>
                   <h4 className="font-bold text-construction-blue mb-2 text-lg group-hover:text-construction-yellow transition-colors duration-300">Quality Assurance</h4>
                   <p className="text-construction-gray">We maintain the highest standards in every project we undertake with rigorous quality control.</p>
-                </div>
+                </div
               </div>
               <div className="flex items-start space-x-4 group">
                 <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-construction-yellow to-construction-yellow/80 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -175,3 +177,4 @@ const Stats: React.FC = () => {
 };
 
 export default Stats;
+
