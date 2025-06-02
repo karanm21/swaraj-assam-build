@@ -7,13 +7,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
 import { MapPin, Calendar, Building } from 'lucide-react';
 
 interface Project {
@@ -23,7 +16,6 @@ interface Project {
   location: string;
   year: string;
   description: string;
-  images?: string[];
 }
 
 interface ProjectDetailsDialogProps {
@@ -38,8 +30,6 @@ const ProjectDetailsDialog: React.FC<ProjectDetailsDialogProps> = ({
   onOpenChange,
 }) => {
   if (!project) return null;
-
-  const projectImages = project.images || [project.image];
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -56,29 +46,13 @@ const ProjectDetailsDialog: React.FC<ProjectDetailsDialogProps> = ({
         </DialogHeader>
         
         <div className="space-y-6">
-          {/* Project Images Carousel */}
-          <div className="relative">
-            <Carousel className="w-full">
-              <CarouselContent>
-                {projectImages.map((image, index) => (
-                  <CarouselItem key={index}>
-                    <div className="aspect-video overflow-hidden rounded-lg">
-                      <img 
-                        src={image} 
-                        alt={`${project.title} - Image ${index + 1}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              {projectImages.length > 1 && (
-                <>
-                  <CarouselPrevious className="left-4" />
-                  <CarouselNext className="right-4" />
-                </>
-              )}
-            </Carousel>
+          {/* Project Image */}
+          <div className="aspect-video overflow-hidden rounded-lg">
+            <img 
+              src={project.image} 
+              alt={project.title}
+              className="w-full h-full object-cover"
+            />
           </div>
           
           {/* Project Info */}
