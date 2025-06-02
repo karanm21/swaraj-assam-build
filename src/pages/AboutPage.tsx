@@ -1,5 +1,3 @@
-
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import About from '@/components/About';
@@ -29,11 +27,7 @@ const AboutPage: React.FC = () => {
       <Navbar />
       <div className="pt-12 relative">
         <AbstractBackground variant="light" />
-        <div className="relative z-10">
-          <div className="bg-white/80 backdrop-blur-sm">
-            <About />
-          </div>
-        </div>
+        <About />
       </div>
       <Footer />
     </div>
