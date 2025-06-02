@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Careers from '@/components/Careers';
@@ -18,7 +17,7 @@ const CareersPage: React.FC = () => {
       });
     };
 
-    animateOnScroll();
+    animateOnScroll(); // Initial check
     window.addEventListener('scroll', animateOnScroll);
     return () => window.removeEventListener('scroll', animateOnScroll);
   }, []);
@@ -26,11 +25,10 @@ const CareersPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <div className="pt-20 relative">
+      <div className="pt-12 relative">
+        
         <AbstractBackground variant="light" />
-        <div className="relative z-10 bg-white">
-          <Careers />
-        </div>
+        <Careers />
       </div>
       <Footer />
     </div>
@@ -38,3 +36,4 @@ const CareersPage: React.FC = () => {
 };
 
 export default CareersPage;
+
