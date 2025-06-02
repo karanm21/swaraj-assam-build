@@ -42,7 +42,7 @@ const Services: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-on-scroll">
           <h2 className="section-title relative">
-            Our Services
+            OUR SERVICES
             <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-construction-yellow rounded-full"></div>
           </h2>
           <p className="text-lg text-construction-gray max-w-3xl mx-auto leading-relaxed mt-6">
