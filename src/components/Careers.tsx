@@ -57,7 +57,9 @@ const Careers: React.FC = () => {
     <section id="careers" className="section-padding bg-construction-lightgray">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="section-title">Current Openings</h2>
+          <h2 className="section-title relative">CURRENT OPENINGS
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-construction-yellow rounded-full"></div>
+          </h2>
           <p className="text-lg text-construction-gray max-w-3xl mx-auto">
             Join our team of talented professionals and be part of Assam's growing infrastructure development.
           </p>
@@ -178,8 +180,10 @@ const Careers: React.FC = () => {
         </div>
 
         <div className="text-center mt-12">
-          <div className="bg-white p-8 rounded-lg shadow-md max-w-2xl mx-auto">
-            <h3 className="text-xl font-semibold text-construction-blue mb-4">Don't see a position that fits?</h3>
+          <div className="bg-white p-8 rounded-xl shadow-lg max-w-2xl mx-auto animate-on-scroll">
+            <h3 className="text-xl font-semibold text-construction-blue mb-4">
+              Don't see a position that fits?
+            </h3>
             <p className="text-construction-gray mb-4">
               We're always looking for talented individuals to join our team. Send us your resume and we'll keep you in mind for future opportunities.
             </p>
@@ -191,6 +195,7 @@ const Careers: React.FC = () => {
             </Button>
           </div>
         </div>
+
       </div>
     </section>
   );
