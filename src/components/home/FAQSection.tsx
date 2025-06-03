@@ -1,35 +1,8 @@
 
 import React from 'react';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import CustomAccordion from './CustomAccordion';
 
 const FAQSection: React.FC = () => {
-  const faqs = [
-    {
-      question: "What is sit amet, consectetur adipiscing elit, sed do?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-      question: "What is sit amet, consectetur adipiscing elit, sed do?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat"
-    },
-    {
-      question: "What is sit amet, consectetur adipiscing elit, sed do?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
-    },
-    {
-      question: "What is sit amet, consectetur adipiscing elit, sed do?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
-    },
-    {
-      question: "What is sit amet, consectetur adipiscing elit, sed do?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
-    },
-    {
-      question: "What is sit amet, consectetur adipiscing elit, sed do?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat"
-    }
-  ];
-
   return (
     <section className="py-20 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
@@ -42,36 +15,15 @@ const FAQSection: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="space-y-4">
-            {faqs.slice(0, 3).map((faq, index) => (
-              <Accordion key={index} type="single" collapsible className="w-full">
-                <AccordionItem value={`item-${index}`} className="border border-gray-200 rounded-lg px-6">
-                  <AccordionTrigger className="text-left hover:no-underline">
-                    <span className="font-semibold text-gray-900">{faq.question}</span>
-                  </AccordionTrigger>
-                  <AccordionContent className="text-gray-600 pb-4">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            ))}
-          </div>
-          
-          <div className="space-y-4">
-            {faqs.slice(3, 6).map((faq, index) => (
-              <Accordion key={index + 3} type="single" collapsible className="w-full">
-                <AccordionItem value={`item-${index + 3}`} className="border border-gray-200 rounded-lg px-6">
-                  <AccordionTrigger className="text-left hover:no-underline">
-                    <span className="font-semibold text-gray-900">{faq.question}</span>
-                  </AccordionTrigger>
-                  <AccordionContent className="text-gray-600 pb-4">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            ))}
-          </div>
+        <div className="flex justify-center">
+          <CustomAccordion
+            text="What types of construction services do you offer?"
+            text1="We provide comprehensive construction services including residential, commercial, and infrastructure development projects across Guwahati and Assam."
+            text2="How do you ensure quality in your projects?"
+            text3="We maintain strict quality control measures with experienced supervisors, regular inspections, and use of premium materials from certified suppliers."
+            text4="What is your typical project timeline?"
+            text5="Project timelines vary based on scope and complexity. We provide detailed schedules during planning phase and maintain transparent communication throughout."
+          />
         </div>
       </div>
     </section>

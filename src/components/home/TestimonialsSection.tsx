@@ -1,26 +1,27 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import CustomQuote from './CustomQuote';
 
 const TestimonialsSection: React.FC = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   
   const testimonials = [
     {
-      quote: "I love lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaation ullamco 100%.",
-      author: "Andy Smith",
-      title: "Manager @Vista Social",
+      quote: "I love working with Swaraj Infra. Their construction quality and attention to detail is exceptional, delivering projects 100% on time.",
+      author: "Rajesh Kumar",
+      title: "Manager @Vista Construction",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
     },
     {
       quote: "Testing these construction services is a pleasure. The quality and attention to detail is exceptional.",
-      author: "Sarah Johnson",
-      title: "Developer @Vista Construction",
+      author: "Priya Sharma",
+      title: "Developer @Vista Infrastructure", 
       avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b1a9?w=100&h=100&fit=crop&crop=face"
     },
     {
       quote: "Wow, awesome work! The team delivered beyond our expectations.",
-      author: "Mike Chen",
+      author: "Amit Bora",
       title: "Designer @OhBoy",
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
     }
@@ -34,6 +35,11 @@ const TestimonialsSection: React.FC = () => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
+  useEffect(() => {
+    const interval = setInterval(nextTestimonial, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="py-20 px-4 bg-gray-50">
       <div className="container mx-auto max-w-4xl">
@@ -45,25 +51,12 @@ const TestimonialsSection: React.FC = () => {
 
         <div className="relative">
           <div className="text-center mb-8">
-            <blockquote className="text-2xl lg:text-3xl font-medium text-gray-900 mb-8 italic leading-relaxed">
-              {testimonials[currentTestimonial].quote}
-            </blockquote>
-            
-            <div className="flex items-center justify-center space-x-4">
-              <img
-                src={testimonials[currentTestimonial].avatar}
-                alt={testimonials[currentTestimonial].author}
-                className="w-12 h-12 rounded-full object-cover"
-              />
-              <div className="text-left">
-                <div className="font-semibold text-gray-900">
-                  {testimonials[currentTestimonial].author}
-                </div>
-                <div className="text-gray-600">
-                  {testimonials[currentTestimonial].title}
-                </div>
-              </div>
-            </div>
+            <CustomQuote
+              quote={testimonials[currentTestimonial].quote}
+              author={testimonials[currentTestimonial].author}
+              title={testimonials[currentTestimonial].title}
+              avatar={testimonials[currentTestimonial].avatar}
+            />
           </div>
 
           <div className="flex justify-center space-x-4">

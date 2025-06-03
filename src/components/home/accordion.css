@@ -1,0 +1,213 @@
+
+.accordion-accordion {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.accordion-element1 {
+  width: 640px;
+  user-select: none;
+  cursor: pointer;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.accordion-element1:hover {
+  border-color: #3b82f6;
+}
+
+.accordion-details1 {
+  gap: 0.5rem;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.accordion-text1 {
+  width: 100%;
+  font-size: 18px;
+  max-width: 535px;
+  font-style: normal;
+  font-family: Poppins;
+  font-weight: 600;
+  line-height: 27px;
+  color: #1f2937;
+}
+
+.accordion-text2 {
+  width: 100%;
+  max-width: 535px;
+  font-family: Poppins;
+  line-height: 24px;
+  user-select: text;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+
+.accordion-icon1 {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+  fill: #6b7280;
+}
+
+.accordion-element2 {
+  width: 640px;
+  user-select: none;
+  cursor: pointer;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.accordion-element2:hover {
+  border-color: #3b82f6;
+}
+
+.accordion-details2 {
+  gap: 0.5rem;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.accordion-text3 {
+  width: 100%;
+  font-size: 18px;
+  max-width: 535px;
+  font-style: normal;
+  font-family: Poppins;
+  font-weight: 600;
+  line-height: 27px;
+  color: #1f2937;
+}
+
+.accordion-text4 {
+  width: 100%;
+  max-width: 535px;
+  font-family: Poppins;
+  line-height: 24px;
+  user-select: text;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+
+.accordion-icon3 {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+  fill: #6b7280;
+}
+
+.accordion-element3 {
+  width: 640px;
+  user-select: none;
+  cursor: pointer;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.accordion-element3:hover {
+  border-color: #3b82f6;
+}
+
+.accordion-details3 {
+  gap: 0.5rem;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.accordion-text5 {
+  width: 100%;
+  font-size: 18px;
+  max-width: 535px;
+  font-style: normal;
+  font-family: Poppins;
+  font-weight: 600;
+  line-height: 27px;
+  color: #1f2937;
+}
+
+.accordion-text6 {
+  width: 100%;
+  max-width: 535px;
+  font-family: Poppins;
+  line-height: 24px;
+  user-select: text;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+
+.accordion-icon5 {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+  fill: #6b7280;
+}
+
+.accordion-element {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+@media(max-width: 767px) {
+  .accordion-element1 {
+    width: 100%;
+    max-width: 560px;
+  }
+  .accordion-text1 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .accordion-element2 {
+    width: 100%;
+    max-width: 560px;
+  }
+  .accordion-text3 {
+    font-size: 16px;
+  }
+  .accordion-element3 {
+    width: 100%;
+    max-width: 560px;
+  }
+  .accordion-text5 {
+    font-size: 16px;
+  }
+}
+
+@media(max-width: 479px) {
+  .accordion-element1 {
+    width: 350px;
+    max-width: auto;
+  }
+  .accordion-element2 {
+    width: 350px;
+    max-width: auto;
+  }
+  .accordion-element3 {
+    width: 350px;
+    max-width: auto;
+  }
+}

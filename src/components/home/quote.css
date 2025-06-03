@@ -1,0 +1,74 @@
+
+.quote-quote1 {
+  gap: 1.5rem;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+}
+
+.quote-quote2 {
+  display: flex;
+  align-items: center;
+  text-overflow: ellipsis;
+  flex-direction: column;
+}
+
+.quote-quote3 {
+  font-size: 32px;
+  font-style: italic;
+  text-align: center;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: 48px;
+  color: #1f2937;
+}
+
+.quote-people {
+  gap: 6rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.quote-person {
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.quote-avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.quote-person-details {
+  gap: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.quote-text1 {
+  font-style: normal;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+@media(max-width: 767px) {
+  .quote-quote3 {
+    font-size: 24px;
+    margin-top: 2rem;
+    line-height: 36px;
+  }
+  .quote-person {
+    flex-direction: column;
+  }
+  .quote-person-details {
+    align-items: center;
+  }
+}
